@@ -1,0 +1,50 @@
+/* Estilo del navbar */
+.navbar {
+    background-color: #D3D3D3; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  /* Contenedor del Search */
+  .container {
+    display: flex; /* Habilita el uso de flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 150%; /* Asegúrate de que el contenedor ocupe todo el ancho */
+  }
+  
+  /* Estilo del formulario de búsqueda */
+  .search-form {
+    display: flex; /* Flexbox para alinear los elementos horizontalmente */
+    align-items: center; /* Alinea verticalmente el input y el botón */
+    gap: 10px; /* Espacio entre el input y el botón */
+  }
+  
+  /* Ajuste del input de búsqueda */
+  .search-input {
+    padding: 10px ; /* Espaciado interno */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 450px; /* Ancho del input */
+    background-color: #D3D3D3;
+   
+  }
+  .search-input:hover{
+    background-color:gray;
+  }
+  
+  /* Estilo del botón de búsqueda */
+  .search-button {
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    background-color:#D3D3D3; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+  }
+  .search-button:hover{
+    background-color:gray;
+  }
+  

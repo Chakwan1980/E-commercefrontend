@@ -1,0 +1,15 @@
+/* Estilo del contenedor de la imagen */
+.imagen-container {
+    display: flex;
+    flex-direction: column; /* Asegura que los hijos se alineen verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+  }
+  
+  /* Ajuste de la imagen */
+  .mantel {
+    max-width: 100%; /* Asegúrate de que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 30px; /* Agrega margen inferior para espacio entre la imagen y el search */
+    margin-top: 150px;
+  }
+  

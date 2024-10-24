@@ -1,0 +1,31 @@
+.container-1 {
+    display: flex;
+    justify-content:space-between;  /* Centra las imágenes en el contenedor principal */
+    align-items: center;      /* Alinea verticalmente las imágenes al centro */
+    width: 100%;              /* El navbar ocupará el 100% del ancho de la página */
+    max-width: 150%;          /* Tamaño máximo del navbar */
+    margin: 0 auto;           /* Centra el navbar en la página */
+    background-color:black; /* Color de fondo del navbar */
+    padding: 10px;            /* Espaciado interno del navbar */
+}
+
+.container {
+    flex-grow: 1;             /* Hace que los elementos ocupen el mismo espacio */
+    display: flex;
+    justify-content: space-between; /* Cambiado para alinear las imágenes al inicio */
+    align-items: center;      /* Alinea verticalmente las imágenes al centro */
+    padding: 0;              /* Elimina el padding para que ocupen todo el ancho */
+}
+
+.logo {
+    width: 70px;             /* Ajusta el tamaño del logo */
+    margin-right: 100px;     /* Espacio entre las imágenes, si es necesario */
+}
+  
+.navbar{
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    height: 75px;
+    
+    
+}
