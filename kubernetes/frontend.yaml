@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ecommerce-app-frontend-service
+  name: e-commerce-app-frontend-service
 spec:
   type: LoadBalancer
   ports:
   - port: 80
     targetPor: 80
   selector:
-    app: ecommerce-app-frontend    
+    app: e-commerce-app-frontend    
  
  
 
@@ -16,21 +16,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ecommerce-app-frontend
+  name: e-commerce-app-frontend
   labels:
-    app: ecommerce-app-frontend
+    app: e-commerce-app-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ecommerce-app-frontend
+      app: e-commerce-app-frontend
   template:
     metadata:
       labels:
-        app: ecommerce-app-frontend
+        app: e-commerce-app-frontend
     spec:
       containers:
-      - name: ecommerce-app-frontend
+      - name: e-commerce-app-frontend
         image:  rosaflores/e-commerce-frontend:latest
         resources:
           requests:
@@ -48,7 +48,7 @@ spec:
       volumes:
       - name: nginx-config-volume
         configMap:
-          name: ecommerce-nginx-configmap
+          name: e-commerce-nginx-configmap
           items:
           - key: nginx.conf
             path: nginx.conf
@@ -57,12 +57,12 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: ecommerce-app-frontend-hpa
+  name: e-commerce-app-frontend-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: fecommerce-app-frontend 
+    name: e-commerce-app-frontend 
   minReplicas: 1                 
   maxReplicas: 4              
   metrics:

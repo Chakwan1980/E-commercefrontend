@@ -115,7 +115,7 @@ input:focus, textarea:focus {
     border-color: #ff4081;
 }
 
-.feedback-item {
+.e-commerce-item {
     border: 2px solid #e91e63;
     margin-bottom: 20px;
     padding: 20px;
@@ -124,7 +124,7 @@ input:focus, textarea:focus {
     text-align: center;
 }
 
-.feedback-item-title {
+.e-commerce-item-title {
     font-size: 28.8px;
     font-weight: bold;
     color: white;
@@ -133,14 +133,14 @@ input:focus, textarea:focus {
     text-align: center;
 }
 
-.feedback-item-text {
+.e-commerce-item-text {
     font-size: 18px;
     color: #b0b0b0;
     margin-bottom: 10px;
     text-align: center;
 }
 
-.feedback-form {
+.e-commerce-form {
     border: 2px solid #e91e63;
     padding: 30px;
     background-color: #333;
