@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecommerce-app-frontend-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPor: 80
+  selector:
+    app: ecommerce-app-frontend    
+ 
+ 
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-app-frontend
+  labels:
+    app: ecommerce-app-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecommerce-app-frontend
+  template:
+    metadata:
+      labels:
+        app: ecommerce-app-frontend
+    spec:
+      containers:
+      - name: ecommerce-app-frontend
+        image:  rosaflores/e-commerce-frontend:latest
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "125m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"  
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx/conf.d/default.conf
+          subPath: nginx.conf
+          name: nginx-config-volume
+      volumes:
+      - name: nginx-config-volume
+        configMap:
+          name: ecommerce-nginx-configmap
+          items:
+          - key: nginx.conf
+            path: nginx.conf
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ecommerce-app-frontend-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: fecommerce-app-frontend 
+  minReplicas: 1                 
+  maxReplicas: 4              
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50                
