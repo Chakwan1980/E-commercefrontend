@@ -1,20 +1,16 @@
-import React from "react";
-import mantel from '../fotos/mantel.png'
-import '../styles/home.css'
-import Search from '../components/search.js'
+// src/pages/Payment.js
+import React from 'react';
+import ProductList from '../components/ProductList.js';
 
-function Home (){
+const Home = () => {
+  return (
+    <div>
+      <h1>No se teeeeeeeedark</h1>
+     
+      <ProductList/>
+  
+          </div>
+  );
+};
 
-    return (
-
-        <div className="imagen-container">
- 
-        <div > <img className="mantel" src={mantel} alt="mantel" /> </div>
-        <Search />
-        </div>
-      
-    )
-
-}
-
-export default Home
+export default Home;

@@ -1,0 +1,167 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ecommerce-app-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-db
+  template:
+    metadata:
+      labels:
+        app: postgres-db
+    spec:
+      containers:
+      - name: postgres-db
+        image: postgres:latest
+        env:
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "password"
+        - name: POSTGRES_DB
+          value: "ecommercedb"
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-storage
+        readinessProbe:
+          exec:
+            command: ["pg_isready", "-U", "postgres"]
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: ecommerce-app-data
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-db
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5432
+    targetPort: 5432
+  selector:
+    app: postgres-db
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: e-commerce-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: e-commerce-app
+  template:
+    metadata:
+      labels:
+        app: e-commerce-app
+    spec:
+      containers:
+      - name: e-commerce-app
+        image: rosaflores/e-commerce-backend:latest
+        env:
+        - name: DB_USER
+          value: "postgres"
+        - name: DB_HOST
+          value: "postgres-db"
+        - name: DB_NAME
+          value: "ecommercedb"
+        - name: DB_PASSWORD
+          value: "password"
+        - name: DB_PORT
+          value: "5432"
+        ports:
+        - containerPort: 5000
+        command: ["npm", "run", "dev"]
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: e-commerce-app
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3030
+    targetPort: 5000
+  selector:
+    app: e-commerce-app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: e-commerce-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: e-commerce-frontend
+  template:
+    metadata:
+      labels:
+        app: e-commerce-frontend
+    spec:
+      containers:
+      - name: e-commerce-frontend
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx/conf.d/default.conf
+          name: nginx-config
+          subPath: default.conf
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: e-commerce-frontend
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30080
+  selector:
+    app: e-commerce-frontend
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  default.conf: |
+    # Configuración de NGINX para frontend
+    server {
+      listen 80;
+      location / {
+        proxy_pass http://e-commerce-app:3030;
+      }
+    }

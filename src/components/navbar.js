@@ -1,21 +1,23 @@
-import React  from 'react' ;
-import {Link} from "react-router-dom";
-import '../styles/navbar.css';
-import logo from '../fotos/logo.png';
+// frontend/src/components/Navbar.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './navbar.css';
 
-function Navbar (){
-    return (
-         <div className='container-1'>
-         <div className=''><img className = "logo" src= {logo} alt="logo" width={50}/></div>
-         <div className=''></div>
-         <div className=''></div>
-         <div className=''></div>
-         
+const Navbar = () => {
+  return (
+    <nav>
+      <div className="logo">MiLogo</div>
+      <div className="nav-links">
 
-
-         </div>
-    )
-
-}
+        <Link to="/home">Empezar</Link>
+        <Link to="/products">Products</Link>
+        <Link to="/shop">Carrito</Link>
+        <Link to="/aboutus">Aboutus</Link>
+        <Link to="/contact">Contact</Link>
+        
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;
