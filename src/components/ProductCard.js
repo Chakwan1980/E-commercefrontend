@@ -16,7 +16,7 @@ const ProductCard = ({ product, onDelete, onEdit }) => {
             <img src={product.image_url} alt={product.product_name} />
             <h2>{product.product_name}</h2>
             <p>{product.product_description}</p>
-            <p>Precio: ${product.price.toFixed(2)}</p>
+            <p>Precio: ${parseFloat(product.price).toFixed(2)}</p>
             <p>Categoría: {product.category}</p>
             <div className="button-group">
                 <button onClick={handleEdit}>Editar</button>

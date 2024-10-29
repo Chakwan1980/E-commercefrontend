@@ -1,0 +1,32 @@
+/* src/components/productList.css */
+.card {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    height: 100%; /* Permite que las tarjetas se expandan para ocupar el mismo espacio */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column; /* Organiza el contenido del cuerpo en columna */
+    flex-grow: 1; /* Permite que el cuerpo crezca para llenar el espacio disponible */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos, empujando el botón hacia abajo */
+}
+
+.card-text {
+    margin-bottom: 10px; /* Asegura un margen inferior entre los textos */
+}
+
+.add-to-cart-btn {
+    margin-top: auto; /* Empuja el botón a la parte inferior */
+    background-color: #28a745; /* Color de fondo para el botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838; /* Color más oscuro al pasar el mouse */
+}
+

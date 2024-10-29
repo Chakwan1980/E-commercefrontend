@@ -1,0 +1,66 @@
+/* Estilo para el título en la página de inicio */
+.home-title {
+    text-align: center; /* Centrar el texto */
+    font-size: 2.5rem; /* Tamaño de fuente grande */
+    margin: 65px 0; /* Espaciado superior e inferior */
+    color: #333; /* Color del texto */
+}
+
+
+/* Espacio adicional entre la imagen y el título */
+.home-container {
+    margin: 40px 0; /* Margen superior e inferior */
+}
+
+/* Estilo para la imagen en la página de inicio */
+.foto-test {
+    display: block; /* Asegúrate de que la imagen se comporte como un bloque */
+    width: 100%; /* Ancho completo */
+    max-width: 600px; /* Ancho máximo para la imagen */
+    height: auto; /* Mantener la proporción */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+/* Estilo para los contenedores */
+.home-container {
+    display: flex; /* Usar flexbox para centrar el contenido */
+    flex-direction: column; /* Colocar los elementos en una columna */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    padding: 40px; /* Espaciado interno */
+}
+
+/* Estilo para la lista de productos */
+.product-list {
+    display: flex; /* Usar flexbox para organizar los productos */
+    flex-wrap: wrap; /* Permitir que los productos se ajusten a múltiples líneas */
+    justify-content: center; /* Centrar productos en la página */
+    max-width: 1200px; /* Ancho máximo de la lista de productos */
+    width: 120%; /* Ancho de la lista de productos */
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin-top: 40px; /* Espacio superior entre la imagen y la lista de productos */
+}
+
+/* Estilo para las tarjetas de productos */
+.card {
+    width: 300px; /* Ajustar el ancho de la tarjeta */
+    margin: 20px; /* Espaciado entre tarjetas */
+    border: 1px solid #ccc; /* Borde opcional */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+/* Ajustes para la visualización adaptativa */
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 2rem; /* Disminuir el tamaño de la fuente en pantallas pequeñas */
+    }
+
+    .foto-test {
+        max-width: 100%; /* Ajustar la imagen a 100% en pantallas pequeñas */
+    }
+
+    .card {
+        width: 100%; /* Ajustar las tarjetas a 100% en pantallas pequeñas */
+    }
+}

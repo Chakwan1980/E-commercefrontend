@@ -1,56 +1,61 @@
+import './list.css'; // Archivo CSS para las tarjetas
 import React, { useEffect, useState } from 'react';
-import { createProducts, getProducts, deleteProducts, updateProducts } from '../api/api.js'; // Ajusta la ruta según tu estructura de archivos
-import ProductCard from './ProductCard.js';
+import { getProducts } from '../api/api.js'; // Asegúrate de que la ruta sea correcta
+import AddToCartButton from './AddButton.js'; // Asegúrate de tener este componente
 
 const ProductList = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [products, setProducts] = useState([]); // Estado para los productos
+    const [loading, setLoading] = useState(true); // Estado para el loading
+    const [error, setError] = useState(null); // Estado para el error
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const data = await getProducts();
-                setProducts(data);
-            } catch (error) {
-                console.error("Error al obtener productos:", error);
+                const data = await getProducts(); // Llama a la función getProducts
+                console.log('Datos recibidos:', data); // Verifica los datos aquí
+                setProducts(Array.isArray(data) ? data : []); // Asigna los productos
+            } catch (err) {
+                console.error('Error al cargar productos:', err);
+                setError('Error al cargar productos: ' + err.message); // Manejo del error
             } finally {
-                setLoading(false);
+                setLoading(false); // Cambia el estado de loading
             }
         };
+    
+        fetchProducts(); // Ejecuta la función de obtención de productos
+    }, []); // Solo se ejecuta al montar el componente
 
-        fetchProducts();
-    }, []);
+    // Renderizado condicional
+    if (loading) return <div>Cargando productos...</div>; // Mensaje de carga
+    if (error) return <div>Error al cargar productos: {error}</div>; // Mensaje de error
 
-    const handleDelete = async (product_code) => {
-        try {
-            await deleteProducts(product_code);
-            setProducts(products.filter(product => product.product_code !== product_code));
-        } catch (error) {
-            console.error("Error al eliminar el producto:", error);
-        }
-    };
-
-    const handleEdit = (product) => {
-        // Aquí puedes implementar la lógica para editar el producto
-        console.log("Editando producto:", product);
-    };
-
-    if (loading) {
-        return <div>Cargando productos...</div>;
-    }
-
+    // Renderiza la lista de productos
     return (
-        <div className="product-list">
-            {products.map((product) => (
-                <ProductCard 
-                    key={product.product_code} 
-                    product={product} 
-                    onDelete={handleDelete} 
-                    onEdit={handleEdit} 
-                />
-            ))}
+        <div className="container">
+            <div className="row">
+                {products.map((product) => (
+                    <div key={product.id} className="col-md-4 mb-4">
+                        <div className="card">
+                            <img 
+                                src={product.image_url || "https://via.placeholder.com/150"} 
+                                className="card-img-top" 
+                                alt={product.product_name} 
+                            />
+                            <div className="card-body">
+                                <h5 className="card-title">{product.product_name}</h5>
+                                <p className="card-text">{product.product_description}</p>
+                                <p className="card-text">{product.product_code}</p>
+                                <p className="card-text">Precio: ${product.price}</p>
+                                <p className="card-text">Categoría: {product.category}</p>
+                                <AddToCartButton itemId={product.id} /> {/* Botón para agregar al carrito */}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
 
 export default ProductList;
+

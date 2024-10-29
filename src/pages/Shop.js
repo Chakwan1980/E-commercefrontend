@@ -27,7 +27,7 @@ const Shop = ({ item, onRemove }) => {
             <div className="shop-card-details">
                 <h2 className="shop-card-title">{item.product_name}</h2>
                 <p className="shop-card-description">{item.product_description}</p>
-                <p className="shop-card-price">${item.price.toFixed(2)}</p>
+                <p className="shop-card-price">${parseFloat(item.price).toFixed(2)}</p>
                 <button className="shop-card-button" onClick={handleDelete}>
                     Eliminar
                 </button>

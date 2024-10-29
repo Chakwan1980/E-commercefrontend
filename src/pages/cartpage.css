@@ -1,0 +1,18 @@
+.container-cartepage {
+  display: flex; /* Usar flexbox para centrar */
+  flex-direction: column; /* Coloca los elementos en una columna */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  padding: 40px; /* Espaciado interno */
+  margin: 80px; /* Margen externo */
+}
+
+.card-body-Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 230px);
+  gap: 40px;
+  padding: 40px;
+  justify-content: center;
+  max-width: 1200px; /* Ancho máximo del contenedor */
+ 
+}

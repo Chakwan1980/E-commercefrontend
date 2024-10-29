@@ -1,15 +1,20 @@
 // src/pages/Payment.js
 import React from 'react';
 import ProductList from '../components/ProductList.js';
+import FotoTest  from '../fotos/test.png'
+import './home.css'
 
-const Home = () => {
+const Home = ({ addToCart }) => {
   return (
-    <div>
-      <h1>No se teeeeeeeedark</h1>
-     
-      <ProductList/>
-  
-          </div>
+    <>
+    <h2 className="home-title">Bienvenido </h2> 
+    <div className="home-container"><img  className='foto-test' src={FotoTest} alt="foto"/></div>
+    <div className="home-container"> {/* Aplica la clase de contenedor */}
+    <div className="product-list"> {/* Aplica la clase para la lista de productos */}
+      <ProductList addToCart={addToCart} />
+    </div>
+  </div>
+  </>
   );
 };
 

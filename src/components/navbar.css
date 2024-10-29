@@ -4,11 +4,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: #fff; /* Puedes cambiar esto si necesitas otro color de fondo */
+  position: fixed;
+  top: 0; /* Asegúrate de que la barra esté en la parte superior */
+  left: 0; /* Asegúrate de que comience desde la izquierda */
+  right: 0; /* Asegúrate de que termine a la derecha */
+  width: 100%; /* Asegúrate de que ocupe todo el ancho */
+  z-index: 1000; /* Mantén el navbar por encima de otros elementos */
 }
 
 nav a {
-  color: #fff;
+  color:black;
   text-decoration: none;
   margin: 0 10px;
   font-size: 16px;

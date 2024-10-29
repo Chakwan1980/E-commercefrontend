@@ -1,39 +1,56 @@
-import { BACKEND_URL } from '../config.js';
+// api.js
+import axios from 'axios';
 
-export const createProducts = async (products) => {
-    const response = await fetch(BACKEND_URL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(products)
-    });
-    const result = await response.json();
-    return result.data;
-}
+const API_URL = 'http://localhost:3030/api/products'; // Cambia esto si usas un dominio diferente
 
+// Obtener todos los productos
 export const getProducts = async () => {
-    const response = await fetch(BACKEND_URL);
+    const response = await fetch(API_URL);
     const result = await response.json();
-    return result.data;
+    return result;
 }
+// Obtener productos por categoría
+export const getProductsByCategory = async (category) => {
+    try {
+        const response = await axios.get(`${API_URL}/category`, {
+            params: { category }
+        });
+        return response.data; // Devuelve productos de la categoría especificada
+    } catch (error) {
+        console.error("Error obteniendo productos por categoría:", error);
+        throw error;
+    }
+};
 
-export const deleteProducts = async (product_code) => {
-    const response = await fetch(`${BACKEND_URL}/code/${product_code}`, { // Cambié aquí para que coincida con tu ruta DELETE
-        method: 'DELETE'
-    });
-    const result = await response.json();
-    return result.message;
-}
+// Agregar un nuevo producto
+export const addProduct = async (product) => {
+    try {
+        const response = await axios.post(API_URL, product);
+        return response.data; // Devuelve el producto creado
+    } catch (error) {
+        console.error("Error agregando producto:", error);
+        throw error;
+    }
+};
 
-export const updateProducts = async (product_code, updatedProductData) => { // Agrega un argumento para los datos actualizados
-    const response = await fetch(`${BACKEND_URL}/${product_code}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updatedProductData) // Envía los datos actualizados
-    });
-    const result = await response.json();
-    return result.message;
-}
+// Actualizar un producto
+export const updateProduct = async (id, product) => {
+    try {
+        const response = await axios.put(`${API_URL}/${id}`, product);
+        return response.data; // Devuelve el producto actualizado
+    } catch (error) {
+        console.error("Error actualizando el producto:", error);
+        throw error;
+    }
+};
+
+// Eliminar un producto
+export const deleteProduct = async (product_code) => {
+    try {
+        const response = await axios.delete(`${API_URL}/code/${product_code}`);
+        return response.data; // Devuelve mensaje de eliminación
+    } catch (error) {
+        console.error("Error eliminando el producto:", error);
+        throw error;
+    }
+};
