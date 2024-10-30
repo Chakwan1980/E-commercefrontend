@@ -1,12 +1,23 @@
-/* Contenedor principal */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crea columnas dinámicas */
+    gap: 20px; /* Espacio entre las tarjetas */
+    margin: 20px; /* Margen del contenedor */
+}
+
 .product-card-1 {
-    border: 1px solid #ddd; /* Borde sutil */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    margin: 20px; /* Espacio alrededor de cada carta */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
     overflow: hidden; /* Ocultar contenido desbordado */
     transition: transform 0.3s; /* Transición suave al hacer hover */
-    max-width: 300px; /* Ancho máximo de la carta */
+}
+
+.shop-card-image {
+    width: 100%; /* La imagen ocupa el 100% del ancho de la tarjeta */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Evita espacios adicionales debajo de la imagen */
 }
 
 /* Efecto de hover */
@@ -14,12 +25,7 @@
     transform: translateY(-5px); /* Eleva la carta ligeramente */
 }
 
-/* Imagen de la carta */
-.shop-card-image-1 {
-    width: 100%; /* Ajusta la imagen al ancho completo */
-    height: 200px; /* Altura fija para la imagen */
-    object-fit: cover; /* Mantiene la proporción de la imagen */
-}
+
 
 /* Detalles de la carta */
 .shop-card-details-1 {

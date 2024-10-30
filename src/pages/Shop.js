@@ -33,11 +33,11 @@ const Shop = () => {
     }
 
     return (
-        <div>
+        <div className="product-grid"> {/* Clase contenedora para grid */}
             {items.map(item => (
                 <div key={item.product_code} className="product-card-1">
-                    <img src={item.image_url} alt={item.product_name} className="shop-card-image" />
-                    <div className="shop-card-details-1">
+                    <img src={item.image_url} alt={item.product_name} className="card-img-top" />
+                    <div className="card-body">
                         <h2 className="shop-card-title-1">{item.product_name}</h2>
                         <p className="shop-card-description-1">{item.product_description}</p>
                         <p className="shop-card-price-1">${parseFloat(item.price).toFixed(2)}</p>
@@ -49,6 +49,8 @@ const Shop = () => {
             ))}
         </div>
     );
+    
+    
 };
 
 export default Shop;
