@@ -1,0 +1,33 @@
+/* Contenedor principal de la confirmación */
+.confirmacion-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Altura completa de la vista */
+    background-color: #f9f9f9; /* Color de fondo suave */
+  }
+  
+  /* Mensaje de confirmación */
+  .confirmacion-mensaje {
+    text-align: center; /* Centra el texto */
+    background-color: #ffffff; /* Fondo blanco para el mensaje */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo */
+    width: 100%; /* Ancho completo hasta el máximo */
+  }
+  
+  /* Estilo del título */
+  .confirmacion-mensaje h2 {
+    color: #4caf50; /* Color verde para el título */
+    margin-bottom: 10px; /* Espaciado debajo del título */
+  }
+  
+  /* Estilo del párrafo */
+  .confirmacion-mensaje p {
+    color: #555; /* Color gris para el texto */
+    margin: 5px 0; /* Margen vertical entre párrafos */
+    line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
+  }
+  

@@ -1,16 +1,15 @@
 /* frontend/src/components/Navbar.css */
-nav {
+.navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #fff; /* Puedes cambiar esto si necesitas otro color de fondo */
-  position: fixed;
-  top: 0; /* Asegúrate de que la barra esté en la parte superior */
-  left: 0; /* Asegúrate de que comience desde la izquierda */
-  right: 0; /* Asegúrate de que termine a la derecha */
-  width: 100%; /* Asegúrate de que ocupe todo el ancho */
-  z-index: 1000; /* Mantén el navbar por encima de otros elementos */
+  justify-content: space-between; /* Espacia el logo y los links */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding: 10px; /* Espaciado alrededor de la navbar */
+  background-color: #f8f9fa; /* Color de fondo opcional */
+  position: fixed; /* Fija la navbar */
+  top: 0; /* Coloca la navbar en la parte superior */
+  left: 0; /* Alinea la navbar a la izquierda */
+  width: 100%; /* Ocupa todo el ancho de la ventana */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
 
 nav a {
@@ -25,13 +24,12 @@ nav a:hover {
   color: #ffd700; /* Cambia el color al pasar el cursor */
 }
 
-.nav-links {
-  display: flex;
-  gap: 15px;
+.nav-right {
+  display: flex; /* Usa flexbox para los links */
+  gap: 15px; /* Espaciado entre los links */
 }
 
-.logo {
-  font-size: 20px;
-  color: #fff;
-  font-weight: bold;
+.nav-right a {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: #000; /* Color de texto para los enlaces */
 }

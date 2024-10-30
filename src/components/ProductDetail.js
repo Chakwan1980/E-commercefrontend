@@ -1,4 +1,4 @@
-// src/pages/ProductDetail.js
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const ProductDetail = ({ addToCart, products }) => {
     }
 
     return (
-        <div className="product-detail">
+        <div className="card-container">
             <div className="card">
                 <img 
                     src={product.image_url || "https://via.placeholder.com/150"} 
@@ -22,7 +22,7 @@ const ProductDetail = ({ addToCart, products }) => {
                     <h5 className="card-title">{product.product_name}</h5>
                     <p className="card-text">{product.product_description}</p>
                     <p className="card-text">Precio: ${product.price}</p>
-                    <button onClick={() => addToCart(product)}>Agregar al Carrito</button>
+                    <button onClick={() => addToCart(product)}>Comprar</button>
                 </div>
             </div>
         </div>

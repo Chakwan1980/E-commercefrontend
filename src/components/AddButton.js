@@ -11,7 +11,7 @@ const AddToCartButton = ({ itemId, label = "Añadir al carrito" }) => {
 
     return (
         <button onClick={handleClick} className="btn btn-primary mt-3">
-            {label}
+            Comprar
         </button>
     );
 };

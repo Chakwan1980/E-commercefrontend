@@ -30,3 +30,23 @@
     background-color: #218838; /* Color más oscuro al pasar el mouse */
 }
 
+.card-body {
+    padding: 20px; /* Espaciado interno en el cuerpo de la tarjeta */
+}
+
+.card-title {
+    font-size: 1.25rem; /* Tamaño de la fuente del título */
+    font-weight: bold; /* Negrita para el título */
+    margin-bottom: 10px; /* Espaciado debajo del título */
+    color:blue;
+}
+
+.card-text {
+    font-size: 1rem; /* Tamaño de la fuente del texto */
+    color: #555; /* Color de texto gris oscuro */
+    margin-bottom: 8px; /* Espaciado entre líneas de texto */
+}
+
+.card-text:last-child {
+    margin-bottom: 0; /* Elimina el margen inferior del último elemento */
+}

@@ -4,16 +4,23 @@ import axios from 'axios';
 const API_URL = 'http://localhost:3030/api/products'; // Cambia esto si usas un dominio diferente
 
 // Obtener todos los productos
+// Obtener todos los productos
 export const getProducts = async () => {
-    const response = await fetch(API_URL);
-    const result = await response.json();
-    return result;
-}
+    try {
+        const response = await axios.get(API_URL);
+        return response.data; // Devuelve los productos
+    } catch (error) {
+        console.error("Error obteniendo productos:", error);
+        throw error;
+    }
+};
+
+
 // Obtener productos por categoría
 export const getProductsByCategory = async (category) => {
     try {
         const response = await axios.get(`${API_URL}/category`, {
-            params: { category }
+            params: { category: category.trim() }
         });
         return response.data; // Devuelve productos de la categoría especificada
     } catch (error) {

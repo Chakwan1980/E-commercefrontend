@@ -5,6 +5,8 @@
   justify-content: center; /* Centra verticalmente */
   padding: 40px; /* Espaciado interno */
   margin: 80px; /* Margen externo */
+ 
+  
 }
 
 .card-body-Grid {
@@ -15,4 +17,23 @@
   justify-content: center;
   max-width: 1200px; /* Ancho máximo del contenedor */
  
+}
+
+.card {
+  border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 10px;
+      height: 800px;
+      width: 600px;
+      display: inline-block;
+      background-color:whitesmoke;
+  }
+
+.button-container {
+  display: flex;             /* Usar flexbox para alinear elementos */
+  justify-content: center;   /* Centrar horizontalmente */
+  align-items: center;       /* Centrar verticalmente si es necesario */
+  gap: 30px;                /* Espacio entre los botones */
+  margin-bottom: 25px;         /* Espaciado superior del contenedor */
 }

@@ -6,6 +6,24 @@
     color: #333; /* Color del texto */
 }
 
+/* Estilos para el contenedor de la tarjeta */
+.card-img {
+    background-color: white; /* Fondo blanco para la tarjeta */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interior de la tarjeta */
+    max-width: 650px; /* Ajusta el ancho máximo según tu preferencia */
+    margin: 20px auto; /* Centra la tarjeta en su contenedor */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto de elevación */
+}
+
+/* Estilos para la imagen */
+.foto-test {
+    width: 265%; /* La imagen ocupa el ancho completo del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 5px; /* Bordes redondeados para la imagen */
+    object-fit: cover; /* La imagen se adapta bien al contenedor */
+}
 
 /* Espacio adicional entre la imagen y el título */
 .home-container {

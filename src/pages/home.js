@@ -8,7 +8,7 @@ const Home = ({ addToCart }) => {
   return (
     <>
     <h2 className="home-title">Bienvenido </h2> 
-    <div className="home-container"><img  className='foto-test' src={FotoTest} alt="foto"/></div>
+    <div className="card-img"><img  className='foto-test' src={FotoTest} alt="foto"/></div>
     <div className="home-container"> {/* Aplica la clase de contenedor */}
     <div className="product-list"> {/* Aplica la clase para la lista de productos */}
       <ProductList addToCart={addToCart} />

@@ -7,6 +7,11 @@ const ProductList = () => {
     const [products, setProducts] = useState([]); // Estado para los productos
     const [loading, setLoading] = useState(true); // Estado para el loading
     const [error, setError] = useState(null); // Estado para el error
+    const [rating, setRating] = useState(3);
+
+    const handleStarClick = (newRating) => {
+        setRating(newRating);
+    };
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -31,8 +36,8 @@ const ProductList = () => {
 
     // Renderiza la lista de productos
     return (
-        <div className="container">
-            <div className="row">
+        <div >
+            <div className="card-container">
                 {products.map((product) => (
                     <div key={product.id} className="col-md-4 mb-4">
                         <div className="card">
@@ -47,6 +52,17 @@ const ProductList = () => {
                                 <p className="card-text">{product.product_code}</p>
                                 <p className="card-text">Precio: ${product.price}</p>
                                 <p className="card-text">Categoría: {product.category}</p>
+                                <div className="star-rating">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <span
+                                key={star}
+                                className={star <= rating ? "star filled" : "star"}
+                                onClick={() => handleStarClick(star)}
+                            >
+                                ★
+                            </span>
+                        ))}
+                    </div>
                                 <AddToCartButton itemId={product.id} /> {/* Botón para agregar al carrito */}
                             </div>
                         </div>

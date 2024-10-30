@@ -1,24 +1,2 @@
-.movieCard {
-    list-style: none; /* Esto no afectará si no estás usando una lista */
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
-  .movieCard:hover {
-    opacity: 0.8; /* Cambia la opacidad cuando se pasa el mouse */
-  }
-  
-  .movieImage {
-    border-radius: 10px; /* Bordes redondeados para la imagen */
-    background-color: azure; /* Color de fondo para la imagen */
-    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-  }
-  
-  @media (max-width: 560px) {
-    .movieImage {
-      width: 90%; /* Ancho al 90% en pantallas pequeñas */
-      height: auto; /* Mantiene la proporción de la imagen */
-    }
-  }
+
   

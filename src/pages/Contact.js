@@ -1,6 +1,7 @@
 // src/pages/Successful.js
 import React from 'react';
 import '../components/contact.css'
+import ProductCard from '../components/ProductCard.js';
 
 const Contact = () => {
   return (
@@ -38,7 +39,7 @@ const Contact = () => {
           <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="whatsapp-button">Enviar Mensaje por WhatsApp</a> {/* Cambié 'class' a 'className' */}
         </div>
       </section>
-
+<ProductCard/>
       <footer>
         <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
       </footer>

@@ -2,22 +2,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
+import logo from '../fotos/logo.png'
 
 const Navbar = () => {
   return (
-    <nav>
-      <div className="logo">MiLogo</div>
-      <div className="nav-links">
-
-        <Link to="/home">Home</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/shop">Shop</Link>
-        <Link to="/aboutus">Aboutus</Link>
-        <Link to="/cart">Carrito</Link>
-        <Link to="/contact">Contact</Link>
-        
-      </div>
-    </nav>
+    <nav className="navbar">
+    <div className="logo">
+      <img src={logo} alt="logo" width={150} />
+    </div>
+    <div className="nav-right">
+      <Link to="/home">Home</Link>
+      <Link to="/busqueda">Busqueda</Link>
+      <Link to="/shop">Shop</Link>
+      <Link to="/aboutus">About Us</Link>
+      <Link to="/contact">Contact</Link>
+    </div>
+  </nav>
+  
   );
 };
 
