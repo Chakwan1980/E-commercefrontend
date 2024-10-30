@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts } from '../api/api.js'; // Asegúrate de que la ruta de importación sea correcta
+import { useCart } from './CartContext.js';
 
 const ProductQuantity = () => {
+    const { addToCart } = useCart(); // Usa el hook para obtener la función addToCart
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
 
@@ -36,15 +38,15 @@ const ProductQuantity = () => {
     if (!product) return <div>Cargando producto...</div>; // Mensaje de carga
 
     // Convierte el precio a número si es un string
-    const price = typeof product.price === 'string' ? parseFloat(product.price) : product.price;
-
-    // Maneja el caso en que el precio no es un número
-    if (isNaN(price)) {
-        console.error("El precio del producto no es un número válido");
-        return <div>Error: precio no válido.</div>; // Manejo de error
-    }
+    const price = parseFloat(product.price) || 0; // Asegúrate de que sea un número
 
     const totalPrice = (quantity * price).toFixed(2); // Calcula el precio total
+
+    const handlePurchase = () => {
+        // Agrega el producto al carrito con la cantidad especificada
+        addToCart(product, quantity); // Pasa la cantidad
+        alert(`Agregaste ${quantity} ${product.product_name} al carrito por un total de $${totalPrice}`);
+    };
 
     return (
         <div className="product-quantity">
@@ -56,10 +58,9 @@ const ProductQuantity = () => {
                 <button onClick={increaseQuantity}>+</button>
             </div>
             <p>Total: ${totalPrice}</p>
-            <button className="add-to-cart">Agregar al carrito</button>
+            <button className="add-to-cart" onClick={handlePurchase}>COMPRAR</button>
         </div>
     );
 };
 
 export default ProductQuantity;
-

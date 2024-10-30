@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getProductsByCategory } from "../api/api.js"; // Asegúrate de la ruta correcta
 import ProductCard from "./ProductCard.js";
 import "./productlistcategoria.css";
+import ProductList from "./ProductList.js";
 
 const ProductSearchByCategory = () => {
   const [category, setCategory] = useState("");
@@ -29,39 +30,40 @@ const ProductSearchByCategory = () => {
   }, [category]);
 
   return (
-    <div>
-      <h2>Buscar Productos por Categoría</h2>
-      <label htmlFor="category-input">Categoría:</label>
-      <input
-        id="category-input"
-        width={50}
-        type="text"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)} // Actualiza el estado de la categoría
-        placeholder="Ingresa la categoría"
-      />
-      <button onClick={handleSearch}>Buscar</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}{" "}
-      {/* Muestra el error si existe */}
-      {products.length > 0 ? (
-        <div>
-          {products.map((product) => (
-            <ProductCard
-              key={product.product_code} // Asegúrate de que este código sea único
-              product={product}
-              onDelete={(productCode) => {
-                /* lógica de eliminación */
-              }}
-              onEdit={(product) => {
-                /* lógica de edición */
-              }}
-            />
-          ))}
-        </div>
-      ) : (
-        <p>No se encontraron productos.</p> // Mensaje si no hay productos
-      )}
+<div className="container-search">
+  <h2>Buscar Productos por Categoría</h2>
+  <label htmlFor="category-input">Categoría:</label>
+  <input
+    id="category-input"
+    className="category-input"  // Añadido para aplicar estilos específicos
+    type="text"
+    value={category}
+    onChange={(e) => setCategory(e.target.value)} // Actualiza el estado de la categoría
+    placeholder="Ingresa la categoría"
+  />
+  <button onClick={handleSearch}>Buscar</button>
+  {error && <p style={{ color: "red" }}>{error}</p>}{" "}
+  {/* Muestra el error si existe */}
+  {products.length > 0 ? (
+    <div >
+      {products.map((product) => (
+        <ProductList
+          key={product.product_code} // Asegúrate de que este código sea único
+          product={product}
+          onDelete={(productCode) => {
+            /* lógica de eliminación */
+          }}
+          onEdit={(product) => {
+            /* lógica de edición */
+          }}
+        />
+      ))}
     </div>
+  ) : (
+    <p>No se encontraron productos.</p> // Mensaje si no hay productos
+  )}
+</div>
+
   );
 };
 

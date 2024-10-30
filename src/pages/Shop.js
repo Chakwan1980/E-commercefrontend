@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getProducts } from '../api/api.js';
 import '../pages/shop.css'
 // Asegúrate de tener este archivo CSS
+import AddToCartButton from '../components/AddButton.js';
 
 
 const Shop = () => {
@@ -41,9 +42,7 @@ const Shop = () => {
                         <h2 className="shop-card-title-1">{item.product_name}</h2>
                         <p className="shop-card-description-1">{item.product_description}</p>
                         <p className="shop-card-price-1">${parseFloat(item.price).toFixed(2)}</p>
-                        <button className="shop-card-button-1" onClick={() => handleRemove(item.product_code)}>
-                            Eliminar
-                        </button>
+                       <AddToCartButton/>
                     </div>
                 </div>
             ))}

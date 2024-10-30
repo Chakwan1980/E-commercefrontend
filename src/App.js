@@ -9,11 +9,15 @@ import Navbar from './components/Navbar.js';
 import Comprar from './pages/FormularioPago.js';
 import ConfirmacionPago from './pages/ConfirmacionPago.js';
 import Busqueda from './pages/Busqueda.js';
+import CheckoutPage from './pages/Chekout.js';
+import { CartProvider } from './components/CartContext.js';
+
 
 function App() {
   
 
   return (
+    <CartProvider>
     <Router>
       <Navbar />
       <Routes>
@@ -26,9 +30,12 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/confirmacionpago' element={<ConfirmacionPago />} />
         <Route path='/cart/:itemId' element={<CartPage />} />
+        <Route path='/checkout' element={<CheckoutPage />} />
+
    
       </Routes>
     </Router>
+    </CartProvider>
   );
 }
 

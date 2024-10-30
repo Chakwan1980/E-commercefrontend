@@ -1,38 +1,22 @@
-
-.product-card img {
-    width: 100%; /* Ajusta la imagen al ancho de la tarjeta */
-    height: 500px; /* Altura fija para las imágenes */
-    object-fit: cover; /* Asegura que la imagen cubra el área de la tarjeta */
-    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
-}
-.card-container {
-    display: flex; /* Usa flexbox para alinear las tarjetas */
-    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en filas */
-    justify-content: space-around; /* Distribuye el espacio entre tarjetas */
-    margin: 20px; /* Espacio alrededor del contenedor */
-}
-
-.card {
-border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    height: 800px;
-    width: 600px;
-    display: inline-block;
-    background-color:whitesmoke;
-}
+.container-search {
+    padding: 20px;
+    max-width: 600px; /* Limita el ancho del contenedor */
+    margin: 0 auto;   /* Centra el contenedor */
+  }
+  
+  .category-input {
+    width: 100%;          /* Mantiene el ancho al 100% del contenedor */
+    max-width: 300px;    /* Limita el ancho del input */
+    padding: 10px;       /* Espaciado interno */
+    margin: 10px 0;      /* Margen superior e inferior */
+  }
+  
+ 
+  
 
 
-.card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    height: 800px; /* Puedes ajustar esto según tus necesidades */
-    background-color: whitesmoke;
-    display: flex; /* Flexbox para alinear contenido interno */
-    flex-direction: column; /* Apilar elementos dentro de la tarjeta verticalmente */
-}
+
+
 
 .card-img-top {
     width: 100%; /* Ajusta la imagen al ancho de la tarjeta */

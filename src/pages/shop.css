@@ -1,8 +1,9 @@
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crea columnas dinámicas */
+    grid-template-columns: repeat(2, 1fr);; /* Crea columnas dinámicas */
     gap: 20px; /* Espacio entre las tarjetas */
     margin: 20px; /* Margen del contenedor */
+    padding: auto;
 }
 
 .product-card-1 {
