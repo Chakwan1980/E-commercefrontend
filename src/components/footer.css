@@ -1,0 +1,47 @@
+/* Estilo para el contenedor principal */
+body {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura de la ventana */
+    margin: 0; /* Elimina márgenes por defecto */
+}
+
+/* Estilo para el footer */
+footer {
+    background-color: #2c3e50; /* Color de fondo */
+    color: #ecf0f1; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Alineación de texto */
+    margin-top: auto; /* Empuja el footer al fondo */
+    width: 100%; /* Ancho completo */
+}
+
+
+footer a {
+    color: #ecf0f1; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayar en hover */
+}
+
+/* Estilos para los íconos, si se utilizan */
+footer .social-icons {
+    margin: 10px 0; /* Espaciado arriba y abajo */
+}
+
+footer .social-icons a {
+    margin: 0 10px; /* Espaciado entre los íconos */
+    font-size: 20px; /* Tamaño del ícono */
+}
+
+@media (max-width: 600px) {
+    footer {
+        font-size: 14px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+
+    footer .social-icons a {
+        font-size: 18px; /* Tamaño de ícono más pequeño en pantallas pequeñas */
+    }
+}

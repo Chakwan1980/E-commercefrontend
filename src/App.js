@@ -1,10 +1,10 @@
 import React  from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import CartPage from './pages/Cartpage.js';
+import Cart from './pages/Cart.js';
 import Shop from './pages/Shop.js'
-import Contact from './pages/Contact.js';
+import Test from './pages/Contact.js';
 import Home from '../src/pages/Home.js';
-import Aboutus from './pages/Aboutus.js';
+import Payment from './pages/Payment.js';
 import Navbar from './components/Navbar.js';
 import Comprar from './pages/FormularioPago.js';
 import ConfirmacionPago from './pages/ConfirmacionPago.js';
@@ -26,11 +26,12 @@ function App() {
         <Route path='/comprar/:itemId' element={<Comprar />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/busqueda' element={<Busqueda />} />
-        <Route path='/aboutus' element={<Aboutus />} />
-        <Route path='/contact' element={<Contact />} />
+       
+        <Route path='/test' element={<Test />} />
         <Route path='/confirmacionpago' element={<ConfirmacionPago />} />
-        <Route path='/cart/:itemId' element={<CartPage />} />
+        <Route path='/cart' element={<Cart />} />
         <Route path='/checkout' element={<CheckoutPage />} />
+        <Route path='/payment' element={<Payment />} />
 
    
       </Routes>

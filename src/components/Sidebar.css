@@ -1,0 +1,27 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px; /* Ajusta el ancho según tus necesidades */
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    transition: transform 0.3s ease-in-out;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.product-card-22-sidebar {
+    height: 100px;
+
+}
+.card-body-22-sidebar{
+    width: 100px;
+}

@@ -1,49 +1,99 @@
-.card-container {
-    display: grid; /* Usar grid para el contenedor de las tarjetas */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 3 tarjetas por fila con un tamaño mínimo */
-    gap:200px; /* Espacio entre las tarjetas */
-    margin: 20px; /* Espacio alrededor del contenedor */
+.product-grid {
+    display:grid;
+    grid-template-columns: repeat( 2,flex-wrap);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre las tarjetas */
+    padding: 20px;
 }
 
-.card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    height: 800px; /* Puedes ajustar esto según tus necesidades */
-    background-color: whitesmoke;
-    display: flex; /* Flexbox para alinear contenido interno */
-    flex-direction: column; /* Apilar elementos dentro de la tarjeta verticalmente */
+.product-card-1 {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    width: 500px; /* Ancho fijo para las tarjetas */
+    transition: transform 0.2s; /* Transición suave al hacer hover */
 }
 
+.product-card-1:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+}
+
+.home-tile{
+    display: flex;
+
+}
 .card-img-top {
-    width: 100%; /* Ajusta la imagen al ancho de la tarjeta */
-    height: 500px; /* Altura fija para las imágenes */
-    object-fit: cover; /* Asegura que la imagen cubra el área de la tarjeta */
-    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+    height: 200px; /* Altura fija para mantener uniformidad */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
 }
 
-/* card.css */
+.card-body {
+    padding: 15px; /* Espaciado interno de la tarjeta */
+}
+
+.home-grid{
+    display:grid;
+    grid-template-columns: repeat( 2,flex-wrap);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre las tarjetas */
+    padding: 150px;
+}
+
+
+.shop-card-title-1 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0; /* Margen superior e inferior */
+}
+
+.shop-card-description-1 {
+    font-size: 0.9em;
+    color: #555; /* Color gris para el texto */
+    margin: 5px 0; /* Margen para separar descripciones */
+}
+
+.shop-card-price-1 {
+    font-weight: bold;
+    color: #007BFF; /* Color azul para el precio */
+}
 
 .star-rating {
-    font-size: 24px; /* Tamaño de las estrellas */
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 10px 0; /* Espaciado en la parte superior e inferior */
 }
 
 .star {
-    color: lightgray; /* Color de estrellas vacías */
-    transition: color 0.2s;
+    font-size: 1.2em; /* Tamaño de las estrellas */
+    color: #ccc; /* Color gris para estrellas no llenas */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: color 0.2s; /* Transición suave de color */
 }
 
 .star.filled {
-    color: gold; /* Estrellas amarillas */
+    color: #FFD700; /* Color dorado para estrellas llenas */
 }
 
+.product-card-footer {
+    padding: 15px; /* Espaciado interno en el pie de la tarjeta */
+    text-align: center; /* Centra el contenido del pie de tarjeta */
+}
 
+.add-to-cart-button {
+    background-color: #28a745; /* Color verde para el botón */
+    color: white; /* Texto blanco */
+    padding: 10px 15px; /* Espaciado del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.2s; /* Transición suave del color de fondo */
+}
 
-
-/* Agrega estilos responsivos */
-@media (max-width: 768px) {
-    .card {
-        flex: 1 1 100%; /* Tarjetas ocupan el 100% del ancho en pantallas pequeñas */
-    }
+.add-to-cart-button:hover {
+    background-color: #218838; /* Color más oscuro al pasar el cursor */
 }

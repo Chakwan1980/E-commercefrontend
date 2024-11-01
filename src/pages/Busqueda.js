@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductSearchByCategory from '../components/ProductSeachtByCategory.js';
+import ProductSearchByCategory from '../components/ProductSearchCategory.js';
 
-const Busqueda = () => {
+const Busqueda= () => {
     return (
         <div>
             <h1>Bienvenido a nuestra Tienda</h1>

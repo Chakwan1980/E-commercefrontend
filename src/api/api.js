@@ -17,12 +17,25 @@ export const getProducts = async () => {
 
 
 // Obtener productos por categoría
+// api.js
 export const getProductsByCategory = async (category) => {
+    if (!category || typeof category !== 'string') {
+        throw new Error("Categoría no válida");
+    }
+
     try {
-        const response = await axios.get(`${API_URL}/category`, {
-            params: { category: category.trim() }
-        });
-        return response.data; // Devuelve productos de la categoría especificada
+        const response = await fetch(`${API_URL}/products?category=${encodeURIComponent(category)}`);
+        const products = await response.json();
+        
+        return products.map(product => ({
+            id: product.id,
+            product_name: product.product_name,
+            product_description: product.product_description,
+            product_code: product.product_code,
+            price: parseFloat(product.price), // Asegúrate de que esto se convierta a un número
+            image_url: product.image_url,
+            category: product.category
+        }));
     } catch (error) {
         console.error("Error obteniendo productos por categoría:", error);
         throw error;

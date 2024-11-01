@@ -1,0 +1,25 @@
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacio entre los elementos */
+    margin-top: 200px;
+}
+
+.product-grid {
+    display: grid;
+    gap: 20px; /* Espacio entre las tarjetas */
+    width: 100%;
+    /* Para controlar la cantidad de columnas, ajusta según el número de productos */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta las tarjetas para distribuirlas */
+    justify-items: center; /* Centra los elementos en la columna */
+}
+
+/* Estilos para las tarjetas del producto */
+.product-card-1 {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%; /* Hace que las tarjetas ocupen todo el ancho en la columna */
+}

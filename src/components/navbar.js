@@ -7,16 +7,19 @@ import logo from '../fotos/logo.png'
 const Navbar = () => {
   return (
     <nav className="navbar">
-    <div className="logo">
-      <img src={logo} alt="logo" width={150} />
+    <div className="#default">
+      <img className ="logo" src={logo} alt="logo" width={150} />
     </div>
-    <div className="nav-right">
-      <Link to="/home">Home</Link>
+    <div className="navbar-right">
+      <Link className='active' to="/home">Home</Link>
       <Link to="/busqueda">Busqueda</Link>
-      <Link to="/shop">Shop</Link>
+     
       <Link to="/aboutus">About Us</Link>
-      <Link to="/contact">Contact</Link>
-      <Link to="/checkout">CarritoPago</Link>
+      <Link to="/payment">Payment</Link>
+      <Link to="/checkout">Checkout</Link>
+      <Link to="/cart">Cart</Link>
+      <Link to="/test">Test</Link>
+   
     </div>
   </nav>
   

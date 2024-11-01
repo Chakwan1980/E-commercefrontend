@@ -1,50 +1,45 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
- // Asegúrate de que tienes el CSS para estilos
+// Checkout.js
+import React from 'react';
+import { useCart } from '../components/CartContext.js';
+import './home.css'; // Asegúrate de importar el CSS
+import { useNavigate } from 'react-router-dom';
 
-const CheckoutPage = () => {
-  const location = useLocation();
-  const cartItems = location.state?.cart || [];
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+const Checkout = () => {
+    const { cart } = useCart(); // Obtén los elementos del carrito
+    const totalAmount = cart.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0); // Calcula el total
+    const navigate = useNavigate(); // Hook para acceder a la navegación
 
-  return (
-    <div>
-      <h2>Resumen de Compra</h2>
-      {cartItems.length === 0 ? (
-        <p>El carrito está vacío.</p>
-      ) : (
-        <div>
-          <div className="product-grid">
-            {cartItems.map((item) => (
-              <div key={item.id} className="product-card-1">
-                <img
-                  src={item.image_url || "https://via.placeholder.com/150"}
-                  className="card-img-top"
-                  alt={item.product_name || "Imagen del producto"}
-                  style={{ width: "150px", height: "auto" }} // Ajusta el tamaño según lo que necesites
-                />
-                <div className="card-body">
-                  <h5 className="shop-card-title-1">{item.product_name}</h5>
-                  <p className="shop-card-description-1">{item.product_description}</p>
-                  <p className="shop-card-description-1">{item.product_code}</p>
-                  <p className="shop-card-description-1">Precio: ${item.price}</p>
-                  <p className="shop-card-price-1">Cantidad: {item.quantity}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <h3>Total a pagar: ${totalPrice.toFixed(2)}</h3>
-          <button>Confirmar y Pagar</button>
+    // Función para manejar la redirección al pago
+    const handleContinueToPayment = () => {
+        // Puedes guardar el totalAmount en un estado global o en localStorage si es necesario
+        // localStorage.setItem('totalAmount', totalAmount);
+        navigate('/payment'); // Redirige a la página de pago
+    };
+
+    return (
+        <div className='container'> 
+            <div className='product-grid'>
+                <h2>Resumen de Compra</h2>
+                <h3 className="total">Total a Pagar: ${totalAmount.toFixed(2)}</h3>
+                <h4>Productos en el Carrito:</h4>
+                <ul>
+                    {cart.map(item => (
+                        <li key={item.product_code}>
+                            <img 
+                                src={item.image_url || "https://via.placeholder.com/150"} 
+                                className="card-img-top" 
+                                alt={item.product_name} 
+                            />
+                            {item.product_name} - {item.quantity} x ${parseFloat(item.price).toFixed(2)} = ${(parseFloat(item.price) * item.quantity).toFixed(2)}
+                        </li>
+                    ))}
+                </ul>
+                <h3>Total: ${totalAmount.toFixed(2)}</h3>
+                <button onClick={handleContinueToPayment} className="continue-button">Continuar al Pago</button>
+            </div>
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
-export default CheckoutPage;
-
-
-
-
-
+export default Checkout;

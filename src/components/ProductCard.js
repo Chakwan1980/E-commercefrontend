@@ -1,67 +1,33 @@
-import React, { useState } from "react";
-import "./card.css";
-import AddToCartButton from "../components/AddButton.js";
-import ProductQuantity from "./ProductQuantity.js";
+import React from 'react';
+import { useCart } from './CartContext.js'; // Asegúrate de que la importación sea correcta
 
-const ProductCard = ({ product = {}, onDelete, onEdit }) => {
-  const [rating, setRating] = useState(3);
+const ProductCard = ({ product }) => {
+  const { addProductToCart } = useCart(); // Usamos el nombre correcto aquí
 
-  const handleDelete = () => {
-    if (onDelete && product.product_code) {
-      onDelete(product.product_code);
-    }
+  // Manejador de clic para agregar el producto al carrito
+  const handleAddToCart = () => {
+    addProductToCart({ ...product, quantity: 1 }); // Asegúrate de pasar la cantidad
+    alert(`Agregaste ${product.product_name} al carrito.`);
   };
 
-  const handleEdit = () => {
-    if (onEdit) {
-      onEdit(product);
-    }
-  };
-
-  const handleStarClick = (newRating) => {
-    setRating(newRating);
-  };
+  // Verificación del precio
+  const price = parseFloat(product.price);
+  if (isNaN(price)) {
+    return <div>Error: El precio del producto no es válido.</div>; // Mensaje de error
+  }
 
   return (
-    <div className="product-grid">
-      <div className="product-card-1">
-        {product.image_url ? (
-          <img
-            src={product.image_url}
-            alt={product.product_name}
-            className="card-img-top"
-          />
-        ) : (
-          <p>Imagen no disponible</p>
-        )}
-        <div className="card-body">
-          <h5 className="shop-card-title-1">{product.product_name}</h5>
-          <p className="shop-card-description-1">
-            {product.product_description}
-          </p>
-          <p className="shop-card-description-1">{product.product_code}</p>
-          <p className="shop-card-description-1">Precio: ${product.price}</p>
-          <p className="shop-card-price-1">Categoría: {product.category}</p>
-          <div className="star-rating">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <span
-                key={star}
-                className={star <= rating ? "star filled" : "star"}
-                onClick={() => handleStarClick(star)}
-              >
-                ★
-              </span>
-            ))}
-          </div>
-          <AddToCartButton itemId={product.id} />{" "}
-          {/* Botón para agregar al carrito */}
-          <div className="product-actions">
-            <ProductQuantity />
-            <AddToCartButton itemId={product.id} />{" "}
-            {/* Botón para agregar al carrito */}
-          </div>
-        </div>
-      </div>
+    <div className="product-card">
+      <img 
+        src={product.image_url || "https://via.placeholder.com/150"} 
+        className="card-img-top" 
+        alt={product.product_name} 
+      />
+      <h2>{product.product_name}</h2>
+      <p>Precio: ${price.toFixed(2)}</p>
+      <p>Descripción: {product.product_description || "Sin descripción disponible."}</p> {/* Descripción del producto */}
+      <p>Categoría: {product.product_category || "Sin categoría."}</p> {/* Categoría del producto */}
+      <button onClick={handleAddToCart}>Agregar al carrito</button>
     </div>
   );
 };

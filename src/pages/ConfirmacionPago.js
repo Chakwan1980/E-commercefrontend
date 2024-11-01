@@ -27,4 +27,3 @@ const ConfirmacionPago = () => {
 };
 
 export default ConfirmacionPago;
-

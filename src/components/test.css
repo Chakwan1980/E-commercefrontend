@@ -1,0 +1,10 @@
+
+
+
+
+/* Agrega estilos responsivos */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%; /* Tarjetas ocupan el 100% del ancho en pantallas pequeñas */
+    }
+}

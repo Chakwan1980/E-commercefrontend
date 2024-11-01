@@ -1,98 +1,223 @@
-/* src/pages/home.css */
-.grid-container {
-    display: grid;
-    grid-template-areas: 
-      "menu main right"
-      "footer footer footer";
-    grid-template-columns: 20% auto; /* Ajusta las proporciones según tus necesidades */
-    grid-template-rows: auto 1fr;
+.product-grid {
+    display: flex;
+    flex-direction: column; /* Asegúrate de que los elementos se apilen verticalmente */
+    align-items: center; /* Centrar elementos dentro del contenedor */
+    width: 100%; /* O el ancho que desees */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Espacio alrededor del contenedor de búsqueda */
+
     
-   
   }
-  .home-title {
-    display: flex;               /* Habilita Flexbox */
-    flex-direction: column;      /* Alinea los hijos en una columna */
-    align-items: center;         /* Centra horizontalmente los hijos */
-    margin: 100px;              /* Margen superior e inferior */
-    padding: 40px 150px;        /* Espaciado interno */
+  .category-input {
+    width: 300px; /* Cambia este valor al tamaño deseado */
+    padding: 10px; /* Añadir un poco de padding para un mejor aspecto */
+    font-size: 16px; /* Aumentar el tamaño de la fuente si es necesario */
+  }
+  
+.search-1{
+    background-color:darkgreen;
+}
+  /**** SEARCH ********/
+
+  /* Estilos generales para el formulario */
+form {
+    display: flex;
+    justify-content: center; /* Centra el formulario en el contenedor */
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin: 20px; /* Espacio alrededor del formulario */
+  }
+  
+  /* Estilos para el campo de entrada */
+  input[type="text"] {
+    padding: 10px 15px; /* Espaciado interno */
+    border: 2px solid #28a745; /* Borde verde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    width: 300px; /* Ancho del input */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+  }
+  
+  /* Cambiar el borde del input al enfocar */
+  input[type="text"]:focus {
+    border-color: #0056b3; /* Cambia el color del borde al enfocar */
+    outline: none; /* Elimina el contorno predeterminado */
+  }
+  
+  /* Estilos para los botones */
+  .button {
+    padding: 10px 15px; /* Espaciado interno */
+    background-color: #28a745; /* Fondo verde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-left: 10px; /* Espacio entre los botones */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+  }
+  
+  /* Cambiar el fondo del botón al pasar el mouse */
+  .button:hover {
+    background-color: #218838; /* Fondo más oscuro al pasar el mouse */
+  }
+  
+  /* Estilo para el botón de borrar */
+  .button[type="button"] {
+    background-color: #dc3545; /* Fondo rojo para el botón de borrar */
+  }
+  
+  /* Cambiar el fondo del botón de borrar al pasar el mouse */
+  .button[type="button"]:hover {
+    background-color: #c82333; /* Fondo más oscuro al pasar el mouse */
   }
   
 
-  
-  .menu {
-    grid-area: menu;
-    background-color:darkgrey; /* Color de fondo para ver el área */
-    padding: 10px;
-  }
-  
-  .main-1 {
-    grid-area: main;
-    background-color: #e0e0e0; /* Color de fondo para ver el área */
-    padding: 10px;
-    width:1200px;
-  }
-  
-  .right {
-    grid-area: right;
-    background-color: #d0d0d0; /* Color de fondo para ver el área */
-    padding: 10px;
-  }
-  
-  .footer {
-    grid-area: footer;
-    background-color: #c0c0c0; /* Color de fondo para ver el área */
-    padding: 10px;
-  }
-  
-  
-  /* Estilos adicionales para adaptabilidad */
-  @media (max-width: 768px) {
-    .home-title {
-      font-size: 28px;
-    }
-  
-    .foto-test {
-      max-width: 300px;
-    }
-  
-    .product-list {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste para pantallas pequeñas */
-    }
-  }
-  
-  
+  /*************************************** CART */
 
-/* Estilo para la lista de productos */
-.product-list {
-    display: flex; /* Usar flexbox para organizar los productos */
-    flex-wrap: wrap; /* Permitir que los productos se ajusten a múltiples líneas */
-    justify-content: center; /* Centrar productos en la página */
-    max-width: 1200px; /* Ancho máximo de la lista de productos */
-    width: 120%; /* Ancho de la lista de productos */
-    margin: 0 auto; /* Centrar horizontalmente */
-    margin-top: 40px; /* Espacio superior entre la imagen y la lista de productos */
+  .product-grid-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar el contenido */
+    margin-top: 150px;
 }
 
-/* Estilo para las tarjetas de productos */
-.card {
-    width: 300px; /* Ajustar el ancho de la tarjeta */
-    margin: 20px; /* Espaciado entre tarjetas */
-    border: 1px solid #ccc; /* Borde opcional */
-    border-radius: 10px; /* Bordes redondeados opcionales */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+.product-card-22 {
+    display: flex; /* Usar flexbox */
+    justify-content: space-between; /* Espacio entre imagen y contenido */
+    align-items: flex-start; /* Alinear al inicio */
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    width:800px; /* Ancho fijo para las tarjetas */
+    transition: transform 0.2s; /* Transición suave al hacer hover */
+    padding: 16px; /* Espaciado interno */
 }
 
-/* Ajustes para la visualización adaptativa */
-@media (max-width: 768px) {
-    .home-title {
-        font-size: 2rem; /* Disminuir el tamaño de la fuente en pantallas pequeñas */
-    }
+.product-card-22 img {
+    max-width: 500px; /* Ajustar el tamaño de la imagen según sea necesario */
+    margin-right: 16px; /* Espacio entre la imagen y el contenido */
+}
 
-    .foto-test {
-        max-width: 100%; /* Ajustar la imagen a 100% en pantallas pequeñas */
-    }
+.card-body {
+    flex-grow: 1; /* Permitir que el cuerpo ocupe el espacio disponible */
+}
 
-    .card {
-        width: 100%; /* Ajustar las tarjetas a 100% en pantallas pequeñas */
-    }
+.ul-container {
+    align-self: flex-end; /* Alinear el contenedor del ul al final */
+}
+
+.product-card-22 ul {
+    list-style-type: none; /* Eliminar viñetas */
+    padding: 0; /* Eliminar padding */
+    margin: 0; /* Eliminar margin */
+}
+
+.product-grid-button {
+ 
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h5 {
+  font-size: 1.2rem;
+}
+
+.color-options {
+  margin: 8px 0;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.add-to-cart, .buy-now {
+  margin-right: 8px;
+}
+
+
+/***************/
+
+.product-card-Card-Test{
+  margin-top: 250px;
+  padding : 50px 50px;
+}
+
+/******** check out****/
+
+.container{
+  margin-top: 120px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: #34495e;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+li:hover {
+  transform: scale(1.02);
+}
+
+.card-img-top {
+  width: 50px; /* Ajusta el tamaño de la imagen */
+  height: auto;
+  margin-right: 15px; /* Espaciado a la derecha de la imagen */
+  border-radius: 4px; /* Bordes redondeados para la imagen */
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-align: center;
+  color: #27ae60;
+  margin-top: 20px;
 }

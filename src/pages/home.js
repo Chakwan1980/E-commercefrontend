@@ -1,60 +1,62 @@
 // src/pages/Payment.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductList from '../components/ProductList.js';
-import FotoTest  from '../fotos/test.png'
-import './home.css'
-import ProductSearchByCategory from '../components/ProductSeachtByCategory.js';
+import FotoTest from '../fotos/test.png';
+import './home.css';
 
-
+import { getProducts } from '../api/api.js';
+import Search from '../components/Search.js';
 
 
 // Componente Main
-const Main = ({ addToCart }) => {
+const Main = () => {
   return (
-    < div className="main">
+    <div className="home-grid">
       <div className="home-title">
-      <h2 >Bienvenido</h2>
-      <img className="foto-test" src={FotoTest} alt="foto" />
+        <h2>Bienvenido</h2>
+        <img className="foto-test" src={FotoTest} alt="foto" />
       </div>
-      <div className="product-list">
-        <ProductSearchByCategory />
-      </div>
-      
-      <div className="product-list">
-        <ProductList addToCart={addToCart} />
-      </div>
-      
-    </div>
-  );
-};
-
-
-
-// Componente Footer
-const Footer = () => {
-  return (
-    <div className="footer">
-      <p>Contenido del pie de página aquí</p>
     </div>
   );
 };
 
 // Componente principal Home
 const Home = ({ addToCart }) => {
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProducts();
+      setProducts(data);
+      setFilteredProducts(data); // Asegúrate de que data no sea undefined
+    };
+    fetchProducts();
+  }, []);
+
+  const handleSearch = (query) => {
+    const filtered = products.filter((product) =>
+      product.product_name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
+
+  const handleClear = () => {
+    setFilteredProducts(products); // Restablece los productos filtrados
+  };
+
   return (
-    <div className="grid-container">
-      <div className="grid-item menu">
-        
-      </div>
-      <div className="grid-item main">
-        <Main addToCart={addToCart} />
-      </div>
-     
-      <div className="grid-item footer">
-        <Footer />
-      </div>
+    <div className='product-grid'>
+      <div className= 'product-grid ' >
+      <Main />
+      <Search className="" onSearch={handleSearch} onClear={handleClear} /> {/* Pasa la función onClear */}
+      <ProductList products={filteredProducts} addToCart={addToCart} />
+ 
+     </div>
+    
     </div>
   );
+
 };
+
 export default Home;
-// Exportar el componente

@@ -1,28 +1,42 @@
+// ProductQuantity.js
 import React, { useEffect, useState } from 'react';
-import { getProducts } from '../api/api.js'; // Asegúrate de que la ruta de importación sea correcta
 import { useCart } from './CartContext.js';
 
-const ProductQuantity = () => {
-    const { addToCart } = useCart(); // Usa el hook para obtener la función addToCart
+const ProductQuantity = ({ productId, onTotalChange }) => {
+    const { addProductToCart } = useCart();
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const products = await getProducts(); // Obtener todos los productos
-                if (products.length > 0) {
-                    setProduct(products[0]); // Usar el primer producto (ajusta según tus necesidades)
-                } else {
-                    console.error("No hay productos disponibles");
+        useEffect(() => {
+            const fetchProduct = async (productId) => {
+                try {
+                    const response = await fetch(`/api/products/${productId}`);
+                    const responseText = await response.text(); // Obtener la respuesta como texto
+                    
+                    // Imprimir la respuesta cruda para ver qué se está devolviendo
+                    console.log('Respuesta de la API:', responseText);
+                    
+                    if (!response.ok) {
+                        throw new Error(`Error ${response.status}: ${responseText}`);
+                    }
+                    
+                    // Intenta parsear el texto como JSON
+                    const productData = JSON.parse(responseText);
+                    // Asegúrate de que el precio sea un número
+                    productData.price = parseFloat(productData.price);
+                    setProduct(productData); // Actualiza el estado del producto
+                } catch (error) {
+                    console.error('Error al buscar el producto:', error);
                 }
-            } catch (error) {
-                console.error("Error al cargar los productos:", error);
-            }
-        };
+            };
+        
+            fetchProduct(productId);
+        }, [productId]);
+        
 
-        fetchProduct();
-    }, []);
+        fetchProduct(productId);
+    }, [productId]);
 
     const increaseQuantity = () => {
         setQuantity((prev) => prev + 1);
@@ -34,30 +48,22 @@ const ProductQuantity = () => {
         }
     };
 
-    // Maneja el caso donde el producto no está disponible
-    if (!product) return <div>Cargando producto...</div>; // Mensaje de carga
-
-    // Convierte el precio a número si es un string
-    const price = parseFloat(product.price) || 0; // Asegúrate de que sea un número
-
-    const totalPrice = (quantity * price).toFixed(2); // Calcula el precio total
-
     const handlePurchase = () => {
-        // Agrega el producto al carrito con la cantidad especificada
-        addToCart(product, quantity); // Pasa la cantidad
-        alert(`Agregaste ${quantity} ${product.product_name} al carrito por un total de $${totalPrice}`);
+        addProductToCart({ ...product, quantity });
+        alert(`Agregaste ${quantity} ${product.product_name} al carrito.`);
     };
+
+    if (!product) return <div>Cargando producto...</div>;
 
     return (
         <div className="product-quantity">
             <h5>{product.product_name}</h5>
-            <p>Precio por unidad: ${price.toFixed(2)}</p>
+            <p>Precio por unidad: ${parseFloat(product.price).toFixed(2)}</p>
             <div className="quantity-controls">
                 <button onClick={decreaseQuantity} disabled={quantity <= 1}>-</button>
                 <span>{quantity}</span>
                 <button onClick={increaseQuantity}>+</button>
             </div>
-            <p>Total: ${totalPrice}</p>
             <button className="add-to-cart" onClick={handlePurchase}>COMPRAR</button>
         </div>
     );
