@@ -1,27 +1,19 @@
+/* frontend/src/components/Sidebar.css */
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 60px; /* Coloca el Sidebar justo debajo del Navbar */
     left: 0;
-    width: 400px; /* Ajusta el ancho según tus necesidades */
-    height: 100%;
-    background-color: white;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    height: calc(100vh - 60px); /* Resta la altura del Navbar */
+    width: 350px;
+    background-color: #f4f4f4;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     padding: 20px;
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-    transition: transform 0.3s ease-in-out;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-.product-card-22-sidebar {
-    height: 100px;
-
-}
-.card-body-22-sidebar{
-    width: 100px;
-}
+    z-index: 999; /* Asegúrate de que esté por debajo del Navbar */
+  }
+  
+  
+  /* Si quieres que el contenido principal no se superponga al sidebar */
+  .app-content {
+    margin-left: 250px; /* Deja espacio para el sidebar */
+  }
+  

@@ -17,15 +17,17 @@ const Search = ({ onSearch, onClear }) => {
 
   return (
     <div className='search-1'>
-    <form onSubmit={handleSearch}>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Buscar productos..."
-      />
-      <button className='button' type="submit">Buscar</button>
-      <button className=" button"type="button" onClick={handleClear}>Borrar</button> {/* Botón para borrar resultados */}
+     <form onSubmit={handleSearch} className="search-form">
+      <div className="search-container">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Buscar productos..."
+        />
+        <button className='button' type="submit">Buscar</button>
+        <button className="button" type="button" onClick={handleClear}>Borrar</button>
+      </div>
     </form>
     </div>
   );

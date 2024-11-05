@@ -110,3 +110,24 @@ footer {
     font-size: 0.9em;
     color: #777;
 }
+/*************** prueba  */
+/* App.css */
+.app {
+    display: flex;
+    flex-direction: column; /* Organiza en filas */
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .row {
+    flex: 1; /* Cada fila ocupará la misma altura */
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+ 
+  
+  .column {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }

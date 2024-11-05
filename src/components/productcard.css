@@ -1,2 +1,208 @@
+/* Estilos para la tarjeta del producto */
+.product-card {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+  margin: 15px;
+  flex: 1 1 calc(50% - 30px);
+}
 
-  
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 15px; /* Espaciado entre tarjetas */
+}
+/* Imagen del producto */
+.product-card img.card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Nombre del producto */
+.product-card h2 {
+  font-size: 1.2rem;
+  color: #333333;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+/* Precio y detalles del producto */
+.product-card p {
+  font-size: 1rem;
+  color: #666666;
+  margin: 5px 0;
+}
+
+/* Precio destacado */
+.product-card p:first-of-type {
+  font-weight: 700;
+  color: #1a73e8;
+}
+
+/* Botón para agregar al carrito */
+.product-card button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #1a73e8;
+  color: #ffffff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: #1665c1;
+}
+
+/**** Cart */
+
+/* Estilos para el elemento del producto */
+.product-item {
+  position: relative; /* Para que el botón de eliminar esté posicionado relativo a este elemento */
+}
+
+/* Botón de eliminar */
+.remove-button {
+  position: absolute; /* Posición absoluta para moverlo a la esquina */
+  top: 5px; /* Distancia desde la parte superior */
+  right: 5px; /* Distancia desde la derecha */
+}
+
+.remove-button {
+  background-color: transparent !important; /* Sin fondo */
+}
+
+
+/* Otras reglas CSS que ya tienes */
+.container-CART {
+  max-width: 1000px;
+  margin: 150px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.container-CART h2 {
+  font-size: 2rem;
+  color: #333333;
+  margin-bottom: 25px;
+}
+
+/* Cuadrícula de productos */
+.product-grid-CART {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Tarjeta individual de producto en el carrito */
+.product-card-CART {
+  list-style: none;
+  padding: 0;
+}
+
+.product-card-CART li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card-CART li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del producto */
+.product-card-CART img.card-img-top-1 {
+  width: 300px; /* Tamaño de imagen */
+  height: 250px; /* Mantiene la relación de aspecto */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Texto de categoría, descripción y demás detalles */
+.product-card-CART p {
+  font-size: 1rem;
+  color: #555555;
+  margin: 5px 0;
+  text-align: center;
+}
+
+/* Sección de cantidad con botones */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Alinea los botones al centro */
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Botones de cantidad */
+.quantity-controls button {
+  width: 40px; /* Ajustar el ancho de los botones */
+  height: 40px; /* Ajustar la altura de los botones */
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem; /* Aumentar el tamaño del texto */
+  color: #ffffff;
+  background-color: #1a73e8;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quantity-controls button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.quantity-controls button:hover:not(:disabled) {
+  background-color: #1665c1;
+}
+
+/* Ajustar el span que muestra la cantidad */
+.quantity-controls span {
+  font-size: 1.2rem; /* Ajustar el tamaño del texto */
+  color: #333333; /* Color del texto */
+}
+
+/* Total y botón de pagar */
+.container-CART h3 {
+  font-size: 1.6rem;
+  color: #333333;
+  margin-top: 30px;
+}
+
+.container-CART button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  color: #ffffff;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.container-CART button:hover {
+  background-color: #1665c1;
+}

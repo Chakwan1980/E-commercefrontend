@@ -10,72 +10,48 @@
     display: flex;
     justify-content: center;
     margin: 20px 0; /* Espacio alrededor del contenedor de búsqueda */
-
+    border-radius: 20px;
     
   }
-  .category-input {
-    width: 300px; /* Cambia este valor al tamaño deseado */
-    padding: 10px; /* Añadir un poco de padding para un mejor aspecto */
-    font-size: 16px; /* Aumentar el tamaño de la fuente si es necesario */
-  }
-  
-.search-1{
-    background-color:darkgreen;
-}
-  /**** SEARCH ********/
+ 
+  /* checkout **/ 
+ 
 
-  /* Estilos generales para el formulario */
-form {
-    display: flex;
-    justify-content: center; /* Centra el formulario en el contenedor */
-    align-items: center; /* Alinea verticalmente los elementos */
-    margin: 20px; /* Espacio alrededor del formulario */
-  }
-  
-  /* Estilos para el campo de entrada */
-  input[type="text"] {
-    padding: 10px 15px; /* Espaciado interno */
-    border: 2px solid #28a745; /* Borde verde */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de fuente */
-    width: 300px; /* Ancho del input */
-    transition: border-color 0.3s; /* Transición suave para el borde */
-  }
-  
-  /* Cambiar el borde del input al enfocar */
-  input[type="text"]:focus {
-    border-color: #0056b3; /* Cambia el color del borde al enfocar */
-    outline: none; /* Elimina el contorno predeterminado */
-  }
-  
-  /* Estilos para los botones */
-  .button {
-    padding: 10px 15px; /* Espaciado interno */
-    background-color: #28a745; /* Fondo verde */
-    color: white; /* Texto blanco */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    font-size: 16px; /* Tamaño de fuente */
-    margin-left: 10px; /* Espacio entre los botones */
-    transition: background-color 0.3s; /* Transición suave para el fondo */
-  }
-  
-  /* Cambiar el fondo del botón al pasar el mouse */
-  .button:hover {
-    background-color: #218838; /* Fondo más oscuro al pasar el mouse */
-  }
-  
-  /* Estilo para el botón de borrar */
-  .button[type="button"] {
-    background-color: #dc3545; /* Fondo rojo para el botón de borrar */
-  }
-  
-  /* Cambiar el fondo del botón de borrar al pasar el mouse */
-  .button[type="button"]:hover {
-    background-color: #c82333; /* Fondo más oscuro al pasar el mouse */
-  }
-  
+
+  /**** SEARCH ********/
+  /* styles.css */
+.search-form {
+  display: flex; /* Utilizamos flexbox para alinear el input y los botones */
+  justify-content: flex-start; /* Alineación hacia la izquierda */
+}
+
+.search-container {
+  display: flex; /* Flexbox para alinear el input y los botones en una fila */
+  gap: 10px; /* Espaciado entre el input y los botones */
+  width: 100%; /* Hacer que el contenedor ocupe el ancho completo */
+}
+
+.search-container input {
+  flex: 1; /* El input ocupará todo el espacio disponible */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Bordes del input */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.search-container .button {
+  padding: 10px 15px; /* Espaciado interno para los botones */
+  border: none; /* Sin bordes */
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.search-container .button:hover {
+  background-color: #0056b3; /* Color del botón al pasar el mouse */
+}
+
+
 
   /*************************************** CART */
 
@@ -119,9 +95,6 @@ form {
     margin: 0; /* Eliminar margin */
 }
 
-.product-grid-button {
- 
-}
 
 .product-card {
   border: 1px solid #ddd;
@@ -220,4 +193,88 @@ li:hover {
   text-align: center;
   color: #27ae60;
   margin-top: 20px;
+}
+
+/***************** Home **************/
+/* src/pages/home.css */
+.home-grid {
+  margin-top: 150px;
+  background-size: cover;
+  display: flex; /* Usamos flexbox */
+  flex-direction: column; /* Cambiar a columna para facilitar la responsividad */
+  justify-content: flex-start; /* Alinear elementos al inicio */
+  align-items: center; /* Centrar los elementos horizontalmente */
+  width: 100%; /* O el ancho que desees */
+  padding: 20px; /* Espaciado interno */
+  background-image: url('../fotos/mantel.jpg.png');
+  background-repeat: no-repeat;
+  height: auto; /* Permitir que el contenedor crezca con el contenido */
+}
+
+
+/* Estilos para la sección de títulos */
+.home-title {
+  text-align: right; /* Alinea el texto del título a la derecha */
+  margin-top: 5px; /* Espacio entre el título y la historia */
+  width: 100%; /* Ajusta el ancho según sea necesario */
+  color: white;
+  
+}
+
+/* Título específico */
+.title {
+  color: white; /* Color del texto del título */
+}
+
+/* Media Queries para Responsividad */
+
+/* Estilos para móviles */
+@media (max-width: 480px) {
+  .home-grid {
+    flex-direction: column; /* Cambia a columna para móviles */
+    align-items: center; /* Centrar elementos horizontalmente */
+  }
+
+  .home-title {
+    text-align: center; /* Centrar el texto para móviles */
+    margin: 20px 0; /* Espaciado vertical para móviles */
+  }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 481px) and (max-width: 768px) {
+  .home-grid {
+    flex-direction: column; /* Cambia a columna para tabletas */
+    align-items: flex-start; /* Alinear elementos al inicio */
+  }
+
+  .home-title {
+    text-align: left; /* Alinear el texto a la izquierda */
+    margin: 15px 0; /* Espaciado vertical para tabletas */
+  }
+}
+
+/* Estilos para computadoras portátiles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home-grid {
+    flex-direction: row; /* Volver a fila para computadoras portátiles */
+    align-items: flex-start; /* Alinear elementos en la parte superior */
+  }
+
+  .home-title {
+    width: 45%; /* Ajustar ancho para que se vea bien */
+    margin: 20px; /* Espaciado entre elementos */
+  }
+}
+
+/* Estilos para computadoras de escritorio */
+@media (min-width: 1025px) {
+  .home-grid {
+    flex-direction: row; /* Alinear en fila para pantallas grandes */
+  }
+
+  .home-title {
+    width: 45%; /* Ajustar ancho para pantallas grandes */
+    margin: 20px; /* Espaciado entre elementos */
+  }
 }

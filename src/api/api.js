@@ -1,6 +1,7 @@
 // api.js
 import axios from 'axios';
 
+
 const API_URL = 'http://localhost:3030/api/products'; // Cambia esto si usas un dominio diferente
 
 // Obtener todos los productos
@@ -71,6 +72,75 @@ export const deleteProduct = async (product_code) => {
         return response.data; // Devuelve mensaje de eliminación
     } catch (error) {
         console.error("Error eliminando el producto:", error);
+        throw error;
+    }
+};
+
+/** */
+
+// Obtener todas las órdenes
+export const getOrders = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/orders`);
+        return response.data; // Devuelve las órdenes
+    } catch (error) {
+        console.error("Error obteniendo órdenes:", error);
+        throw error;
+    }
+};
+
+// Agregar una nueva orden
+export const addOrder = async (order) => {
+    try {
+        const response = await axios.post(`${API_URL}/orders`, order);
+        return response.data; // Devuelve la orden creada
+    } catch (error) {
+        console.error("Error agregando orden:", error);
+        throw error;
+    }
+};
+
+// Obtener todos los ítems de órdenes
+export const getOrderItems = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/order_items`);
+        return response.data; // Devuelve los ítems de órdenes
+    } catch (error) {
+        console.error("Error obteniendo ítems de órdenes:", error);
+        throw error;
+    }
+};
+
+// Agregar un nuevo ítem de orden
+export const addOrderItem = async (orderItem) => {
+    try {
+        const response = await axios.post(`${API_URL}/order_items`, orderItem);
+        return response.data; // Devuelve el ítem de orden creado
+    } catch (error) {
+        console.error("Error agregando ítem de orden:", error);
+        throw error;
+    }
+};
+
+// Register 
+
+export const registerUser = async (userData) => {
+    try {
+        const response = await axios.post(`${API_URL}/api/register`, userData);
+        return response.data; // Devuelve la respuesta del registro
+    } catch (error) {
+        console.error("Error registrando el usuario:", error);
+        throw error;
+    }
+};
+
+// Iniciar sesión
+export const loginUser = async (credentials) => {
+    try {
+        const response = await axios.post(`${API_URL}/login`, credentials);
+        return response.data; // Devuelve el token si las credenciales son válidas
+    } catch (error) {
+        console.error("Error iniciando sesión:", error);
         throw error;
     }
 };

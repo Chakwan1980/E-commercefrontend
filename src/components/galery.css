@@ -1,0 +1,25 @@
+.image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Ajusta al tamaño de tu galería */
+    height: 450px; /* Ajusta según sea necesario */
+  }
+  
+  .history-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transiciones suaves */
+    opacity: 0; /* Inicialmente invisible */
+    transform: scale(1.1); /* Aumenta el tamaño para un efecto de zoom */
+  }
+  
+  .history-image.show {
+    opacity: 1; /* Muestra la imagen */
+    transform: scale(1); /* Regresa a su tamaño original */
+  }
+  
+  .gallery{
+    height: 500px;
+  }

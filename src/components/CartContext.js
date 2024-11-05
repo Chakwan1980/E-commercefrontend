@@ -12,7 +12,6 @@ const cartReducer = (state, action) => {
         case 'ADD_TO_CART':
             const existingProduct = state.items.find(item => item.product_code === action.payload.product_code);
             if (existingProduct) {
-                // Si el producto ya existe, aumenta la cantidad
                 return {
                     ...state,
                     items: state.items.map(item =>
@@ -22,7 +21,6 @@ const cartReducer = (state, action) => {
                     ),
                 };
             } else {
-                // Si no existe, lo agrega al carrito
                 return {
                     ...state,
                     items: [...state.items, { ...action.payload, quantity: action.payload.quantity }],
@@ -43,9 +41,9 @@ const cartReducer = (state, action) => {
                 ...state,
                 items: state.items.map(item => 
                     item.product_code === action.payload.product_code
-                        ? { ...item, quantity: Math.max(item.quantity + action.payload.amount, 1) } // Asegúrate de que la cantidad no sea menor a 1
+                        ? { ...item, quantity: Math.max(item.quantity + action.payload.amount, 0) } // Cambiado a 0
                         : item
-                ),
+                ).filter(item => item.quantity > 0), // Filtra elementos con cantidad menor a 1
             };
         default:
             return state;
@@ -85,4 +83,5 @@ export const CartProvider = ({ children }) => {
 };
 
 export const useCart = () => useContext(CartContext);
+
 

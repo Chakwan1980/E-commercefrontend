@@ -1,10 +1,13 @@
+/* Resumen del Shop  */
+
+
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useCart } from "../components/CartContext.js";
 import { useNavigate } from "react-router-dom";
 
 const Shop = () => {
-  const { cart, removeProductFromCart } = useCart();
+  const {  removeProductFromCart } = useCart();
   const navigate = useNavigate();
   const location = useLocation();
   const totalPrice = parseFloat(location.state?.totalPrice || 0); // Asegúrate de que sea un número

@@ -1,0 +1,92 @@
+.login-container {
+    max-width: 400px;
+    margin: 150px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-options {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+
+/* REGISTER*/
+
+/* src/pages/register.css */
+
+form {
+
+    display: flex;
+    flex-direction: column;
+    width: 400px; /* Ajusta el ancho del formulario */
+    margin: 150px auto; /* Centra el formulario */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del formulario */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    background-color: #f9f9f9; /* Color de fondo */
+}
+
+input {
+    margin-bottom: 15px; /* Espaciado entre campos */
+    padding: 10px; /* Espaciado interno en campos */
+    border: 1px solid #ddd; /* Borde de los campos */
+    border-radius: 5px; /* Esquinas redondeadas en campos */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: border 0.3s; /* Transición suave para el borde */
+}
+
+input:focus {
+    border: 1px solid #007bff; /* Color de borde al enfocar */
+    outline: none; /* Quitar el contorno por defecto */
+}
+
+button {
+    padding: 10px; /* Espaciado interno del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas en el botón */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor de puntero */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+h2 {
+    text-align: center; /* Centra el título */
+    margin-bottom: 20px; /* Espaciado inferior */
+    color: #333; /* Color del texto del título */
+}
