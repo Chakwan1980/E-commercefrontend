@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './galery.css'
-// Ading the urls from S
+
 
 const Bordando =
   "https://rosa-test-bucket-05112024.s3.eu-central-1.amazonaws.com/Bordando.png";
@@ -32,7 +32,7 @@ const VestidoNina =
   "https://rosa-test-bucket-05112024.s3.eu-central-1.amazonaws.com/vestidonina.png";
 
 const Gallery = () => {
-  // 1. Arreglo de imágenes
+  // array
   const images = [
     Bordando,
     FolsaRegalo,
@@ -55,9 +55,9 @@ const Gallery = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Cambia cada 3 segundos
+    }, 3000); 
 
-    return () => clearInterval(interval); // Limpia el temporizador al desmontar
+    return () => clearInterval(interval); 
   }, [images.length]);
 
   return (

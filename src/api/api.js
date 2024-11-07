@@ -1,11 +1,10 @@
-// api.js
+
 import axios from 'axios';
 
 
-const API_URL = 'http://localhost:3030/api/products'; // Cambia esto si usas un dominio diferente
+const API_URL = 'http://localhost:3030/api/products'; 
 
-// Obtener todos los productos
-// Obtener todos los productos
+//get
 export const getProducts = async () => {
     try {
         const response = await axios.get(API_URL);
@@ -17,8 +16,7 @@ export const getProducts = async () => {
 };
 
 
-// Obtener productos por categoría
-// api.js
+// get by id
 export const getProductsByCategory = async (category) => {
     if (!category || typeof category !== 'string') {
         throw new Error("Categoría no válida");
@@ -43,7 +41,7 @@ export const getProductsByCategory = async (category) => {
     }
 };
 
-// Agregar un nuevo producto
+// post
 export const addProduct = async (product) => {
     try {
         const response = await axios.post(API_URL, product);
@@ -54,7 +52,7 @@ export const addProduct = async (product) => {
     }
 };
 
-// Actualizar un producto
+// put
 export const updateProduct = async (id, product) => {
     try {
         const response = await axios.put(`${API_URL}/${id}`, product);
@@ -65,7 +63,7 @@ export const updateProduct = async (id, product) => {
     }
 };
 
-// Eliminar un producto
+// delete
 export const deleteProduct = async (product_code) => {
     try {
         const response = await axios.delete(`${API_URL}/code/${product_code}`);

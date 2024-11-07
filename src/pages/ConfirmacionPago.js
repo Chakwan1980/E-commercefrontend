@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const ConfirmacionPago = () => {
   const navigate = useNavigate();
 
-  // Función para manejar la redirección
+
   const handleRedirect = () => {
-    navigate('/home'); // Redirige a la página de inicio
+    navigate('/home'); 
   };
 
   return (

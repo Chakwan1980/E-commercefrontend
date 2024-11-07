@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getProductsByCategory } from "../api/api.js"; // Asegúrate de la ruta correcta
+import { getProductsByCategory } from "../api/api.js"; 
 import ProductCard from "./ProductCard.js";
 import "./productlistcategoria.css";
 
@@ -9,23 +9,23 @@ const ProductSearchByCategory = () => {
   const [error, setError] = useState(null);
 
   const handleSearch = async (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault(); 
     if (!category) {
       setError("Por favor, ingresa una categoría.");
       return;
     }
-    setError(null); // Resetea el error
+    setError(null); 
     try {
-      const fetchedProducts = await getProductsByCategory(category.trim()); // Asegúrate de que la categoría esté bien recortada
-      setProducts(fetchedProducts); // Establece los productos obtenidos
+      const fetchedProducts = await getProductsByCategory(category.trim()); 
+      setProducts(fetchedProducts); 
     } catch (err) {
-      setError("Error al buscar productos por categoría."); // Manejo de errores
-      console.error(err); // Muestra el error en la consola
+      setError("Error al buscar productos por categoría."); 
+      console.error(err); 
     }
   };
 
   useEffect(() => {
-    // Limpiar la lista de productos cuando cambie la categoría
+
     setProducts([]);
   }, [category]);
 
@@ -37,31 +37,31 @@ const ProductSearchByCategory = () => {
           className="form-control me-2 category-input"
           type="text"
           value={category}
-          onChange={(e) => setCategory(e.target.value)} // Actualiza el estado de la categoría
+          onChange={(e) => setCategory(e.target.value)}
           placeholder="Ingresa la categoría"
           aria-label="Search"
         />
         <button className="btn btn-outline-success" type="submit">Buscar</button>
       </form>
       {error && <p style={{ color: "red" }}>{error}</p>}{" "}
-      {/* Muestra el error si existe */}
+   
       {products.length > 0 ? (
         <div className="container-search-2">
           {products.map((product) => (
             <ProductCard
-              key={product.product_code} // Asegúrate de que este código sea único
+              key={product.product_code} 
               product={product}
               onDelete={(productCode) => {
-                /* lógica de eliminación */
+               
               }}
               onEdit={(product) => {
-                /* lógica de edición */
+             
               }}
             />
           ))}
         </div>
       ) : (
-        <p>No se encontraron productos.</p> // Mensaje si no hay productos
+        <p>No se encontraron productos.</p> 
       )}
     </div>
   );

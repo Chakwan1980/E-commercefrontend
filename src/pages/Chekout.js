@@ -1,18 +1,14 @@
 import React, { useEffect } from 'react';
 import { useCart } from '../components/CartContext.js';
 import { useNavigate } from 'react-router-dom';
-import './home.css'; // Asegúrate de importar el CSS
+import './home.css'; 
 
 const Checkout = () => {
-    const { cart } = useCart(); // Obtén los elementos del carrito
-    const totalAmount = cart.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0); // Calcula el total
-    const navigate = useNavigate(); // Hook para acceder a la navegación
+    const { cart } = useCart(); 
+    const totalAmount = cart.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0); 
+    const navigate = useNavigate(); 
 
-    // Función para manejar la redirección al pago
-    const handleContinueToPayment = () => {
-        localStorage.setItem('totalAmount', totalAmount.toFixed(2)); // Guardar el total en localStorage
-        navigate('/payment'); // Redirige a la página de pago
-    };
+
 
     const handleGoBack = () => {
         navigate(-1);
@@ -36,7 +32,7 @@ const Checkout = () => {
                 onApprove: (data, actions) => {
                     return actions.order.capture().then((details) => {
                         alert('Pago realizado con éxito: ' + details.payer.name.given_name);
-                        navigate('/success'); // Redirige a la página de éxito
+                        navigate('/success'); 
                     });
                 },
                 onError: (err) => {
@@ -71,8 +67,8 @@ const Checkout = () => {
                     ))}
                 </ul>
                 <h3>Total: ${totalAmount.toFixed(2)}</h3>
-                <div id="paypal-button-container"></div> {/* Contenedor para el botón de PayPal */}
-                <button onClick={handleContinueToPayment} className="pay-button">Continuar al Pago</button>
+                <div id="paypal-button-container"></div> 
+               
                 <button onClick={handleGoBack} className="pay-button">Regresar</button>
             </div>
         </div>

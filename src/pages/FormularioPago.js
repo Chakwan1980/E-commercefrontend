@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./formulariopago.css"; // Asegúrate de tener estilos específicos si los necesitas
+import "./formulariopago.css";
 
 const FormularioPago = () => {
-  const { itemId } = useParams(); // Obtener el id del producto
+  const { itemId } = useParams(); // get by id
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nombre: "",
@@ -25,7 +25,7 @@ const FormularioPago = () => {
  // Manejo de envío del formulario
 const handleSubmit = (e) => {
   e.preventDefault();
-  // Aquí podrías agregar lógica para validar y procesar el pago
+ 
   console.log("ID del producto:", itemId); // Uso de itemId
   setPaymentConfirmed(true);
   setTimeout(() => navigate("/confirmacionpago"), 3000); // Redirige a la página de confirmación de pago

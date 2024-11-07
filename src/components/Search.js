@@ -1,4 +1,4 @@
-// src/components/Search.js
+
 import React, { useState } from 'react';
 import '../pages/home.css'
 
@@ -7,12 +7,12 @@ const Search = ({ onSearch, onClear }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    onSearch(query); /*llama a la funcio onSearch que se le pasa como prop */
+    onSearch(query); 
   };
 
   const handleClear = () => {
-    setQuery(''); // Limpia el campo de entrada
-    onClear(); // Llama a la función para limpiar resultados
+    setQuery(''); 
+    onClear(); 
   };
 
   return (

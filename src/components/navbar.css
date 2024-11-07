@@ -3,41 +3,52 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #f8f9fa;
+  padding: 15px 30px;
+  background-color: #ffffff; /* Fondo blanco para un look limpio */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  transition: background-color 0.3s ease; /* Transición para el fondo */
 }
 
 .navbar a {
-  color: black;
+  color: #333333; /* Gris oscuro en vez de negro para suavizar el texto */
   text-decoration: none;
-  margin: 0 10px;
-  font-size: 16px;
-  transition: color 0.3s ease;
+  margin: 0 15px;
+  font-size: 17px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease; /* Animación en hover */
 }
 
-.navbar a:hover {
-  color: #ffd700;
-}
-
-.nav-right { /* Cambia esto para que coincida con el archivo JS */
+.nav-right {
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: 20px; /* Más espacio entre los elementos */
 }
 
 .nav-right a {
   text-decoration: none;
-  color: #000;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-/* Margen para el contenido principal, de acuerdo con la altura del navbar */
-.content-container {
-  margin-top: 60px; /* Ajusta este valor si cambias la altura de la navbar */
+.logo {
+  border-radius:80%;/* Asegura que sea perfectamente circular */
+
+  transition: transform 0.3s ease;
 }
-.logo{
-  border-radius: 30px;
+
+
+
+.content-container {
+  margin-top: 75px; /* Ajuste de margen según la altura de la navbar */
+}
+
+/* Opcional: Cambia el color de fondo en scroll */
+.navbar.scrolled {
+  background-color: #f1f1f1; /* Cambia el fondo al hacer scroll */
 }

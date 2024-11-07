@@ -97,3 +97,34 @@
 .add-to-cart-button:hover {
     background-color: #218838; /* Color más oscuro al pasar el cursor */
 }
+
+
+
+/*  Product List
+
+/* Estilo para centrar el texto y cambiar el color a blanco */
+.center-text {
+    text-align: center; /* Centrar el texto horizontalmente */
+    color: white; /* Cambiar el color del texto a blanco */
+    font-size: 2rem; /* Opcional: ajustar el tamaño de la fuente */
+    margin: 0 auto; /* Opcional: eliminar márgenes */
+    padding: 0 auto;
+}
+
+
+/* Estilo para la línea horizontal */
+.horizontal-line {
+    border: 0; /* Eliminar el borde predeterminado */
+    border-top: 2px solid white; /* Línea blanca, puedes ajustar el grosor */
+    width: 100%; /* Hacer la línea de ancho completo */
+    margin-bottom: 20px; /* Espaciado debajo de la línea */
+}
+
+/* Estilo para el texto centrado */
+.center-text {
+    text-align: center; /* Centrar el texto */
+    color: white; /* Cambiar el color del texto a blanco */
+    font-size: 2rem; /* Opcional: ajustar el tamaño de la fuente */
+    margin: 0; /* Eliminar márgenes */
+}
+

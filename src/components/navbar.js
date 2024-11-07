@@ -1,8 +1,8 @@
-// frontend/src/components/Navbar.js
+
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import logo from "../fotos/logo.png";
+import logo from "../fotos/logoflores.png";
 import Cart from "../fotos/icono.gif";
 
 const Navbar = () => {
@@ -18,7 +18,6 @@ const Navbar = () => {
 
         <Link to="/aboutus">About Us</Link>
 
-        <Link to="/checkout">Checkout</Link>
         <Link to="/cart">
           <img src={Cart} alt="Cart" className="cart-logo" width={30} />
         </Link>

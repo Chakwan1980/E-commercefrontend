@@ -68,6 +68,24 @@
 
 /**** Cart */
 
+.product-title {
+  font-size: 1.5rem; /* Tamaño de fuente más grande */
+  font-weight: bold; /* Negrita para destacar */
+  color: #333; /* Color de texto distintivo */
+  text-transform: capitalize; /* Capitalizar cada palabra */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  letter-spacing: 0.5px; /* Espaciado entre letras */
+  border-bottom: 2px solid #007BFF; /* Línea inferior para resaltarlo */
+  padding-bottom: 4px; /* Espacio entre el texto y el borde inferior */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: color 0.3s ease; /* Transición para el color */
+}
+
+.product-title:hover {
+  color: #007BFF; /* Cambia el color al pasar el ratón */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
 /* Estilos para el elemento del producto */
 .product-item {
   position: relative; /* Para que el botón de eliminar esté posicionado relativo a este elemento */
@@ -88,7 +106,7 @@
 /* Otras reglas CSS que ya tienes */
 .container-CART {
   max-width: 1000px;
-  margin: 150px auto;
+  margin: 200px  auto;
   padding: 30px;
   background-color: #f9f9f9;
   border-radius: 15px;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { registerUser } from '../api/api.js'; // Asegúrate de que la ruta sea correcta
 import './login.css';
 

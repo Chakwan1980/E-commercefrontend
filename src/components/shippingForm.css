@@ -1,0 +1,98 @@
+/* Estilo general del contenedor */
+/* Estilo general del contenedor */
+.info-container {
+    max-width: 500px; /* Cambiado de 800px a 1000px */
+   margin-top: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.info-container h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilos del formulario */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #007BFF;
+}
+
+/* Botón de envío */
+button[type="submit"] {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.form-group-1 {
+    width: 100%; /* Abarca todo el ancho del contenedor */
+    padding: 12px; /* Espacio interno para hacerlo más alto */
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    border: 2px solid #ccc; /* Borde con grosor */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+/* Estilo general para los campos de entrada de texto y textarea */
+.form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    resize: vertical; /* Permite cambiar la altura */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    min-height: 100px; /* Altura mínima para texto grande */
+}
+
+.form-group textarea:focus {
+    border-color: #007BFF;
+}
+
+
+.thank-you-container{
+
+
+}

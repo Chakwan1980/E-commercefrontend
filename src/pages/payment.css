@@ -153,6 +153,21 @@ input {
 
 /************** Thank you */
 /* thankYou.css */
+
+.success-container {
+    margin: 10% auto; /* Margen superior e inferior y centrado */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 10px; /* Espacio entre columnas */
+    
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: start;
+}
+
+
+
 .thank-you-container {
     max-width: 450px; /* Ancho máximo */
     margin: 10% auto; /* Margen superior e inferior y centrado */
@@ -188,19 +203,4 @@ input {
     font-size: 16px; /* Tamaño de fuente del párrafo */
 }
 
-.go-home-button {
-    padding: 12px 24px; /* Espaciado interno */
-    background-color: #28a745; /* Color verde */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 8px; /* Esquinas redondeadas */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón */
-    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra del botón */
-}
 
-.go-home-button:hover {
-    background-color: #218838; /* Color verde más oscuro al pasar el ratón */
-    transform: translateY(-2px); /* Efecto de elevación al pasar el ratón */
-}

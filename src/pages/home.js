@@ -1,11 +1,11 @@
-// src/pages/Payment.js
+
 import React, { useState, useEffect } from "react";
 import ProductList from "../components/ProductList.js";
 import "./home.css";
 import { getProducts } from "../api/api.js";
 import Search from "../components/Search.js";
 
-// Componente Main
+
 const Main = () => {
   return (
     <div className="home-grid">
@@ -51,7 +51,7 @@ const Home = ({ addToCart }) => {
     const fetchProducts = async () => {
       const data = await getProducts();
       setProducts(data);
-      setFilteredProducts(data); // Asegúrate de que data no sea undefined
+      setFilteredProducts(data); // Asegura que data no es undefined
     };
     fetchProducts();
   }, []);
@@ -72,7 +72,7 @@ const Home = ({ addToCart }) => {
     <div className='product-grid'>
       <div className= 'product-grid ' >
       <Main />
-      <Search className="" onSearch={handleSearch} onClear={handleClear} /> {/* Pasa la función onClear */}
+      <Search className="" onSearch={handleSearch} onClear={handleClear} />
       <div>
       <ProductList products={filteredProducts} addToCart={addToCart} />
       </div>
