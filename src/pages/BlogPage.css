@@ -1,0 +1,156 @@
+/* Estilos generales para la estructura principal */
+.contenedor-principal-blog {
+  max-width: 1200px;
+  margin: 200px auto;
+  padding: 20px;
+  background-color: white;
+}
+
+.grid-container-blog {
+  margin-bottom: 45px;
+  border-radius: 10px;
+  background-color:grey;
+  margin-top: 25px;
+}
+
+.slogan-container {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.slogan {
+  color: #4c4c4c;
+  font-weight: bold;
+}
+
+hr {
+  border: none; /* Elimina el borde predeterminado */
+  border-top: 4px solid #ccc; /* Cambia el grosor y color de la línea */
+  margin: 20px 0; /* Espacio arriba y abajo de la línea */
+  width: 100%; /* Ajusta el ancho, si deseas cambiarlo */
+}
+
+/* Estilos para imágenes de blog */
+.blog-post-image {
+  width: 100%;
+  max-width: 600px; /* Tamaño máximo en pantallas grandes */
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-right: 20px;
+ 
+}
+
+.image-description {
+  font-size: 1em;
+  color: white;
+  line-height: 1.8;
+  margin-top: 50px;
+}
+.content-row {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusta el ancho mínimo de cada imagen */
+  gap: 15px; /* Espacio entre imágenes */
+  align-items: flex-start;
+
+
+  
+}
+.content-row img{
+  border: 3px solid #cccccc; /* Grosor y color del borde */
+  border-radius: 10px; /* Bordes redondeados, opcional */
+  padding: 5px; /* Espacio entre la imagen y el borde */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+.title-blog {
+  font-family: 'Lato', sans-serif;
+  padding-top:120px;
+  
+  text-align: center;
+  margin: 10px 0;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+/* Consejos de cuidado en lista */
+.grid-container-blog li {
+  font-size: 1em;
+  color: #4c4c4c;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.h2-blog-page{
+  margin: 25px auto;
+}
+/* Estilos específicos para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  .contenedor-principal-blog {
+    padding: 10px;
+  }
+
+  .slogan {
+    font-size: 1.3em;
+  }
+
+  .content-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blog-post-image {
+    max-width: 80%; /* Tamaño ajustado en pantallas medianas */
+    margin: 0 auto 15px; /* Centra la imagen en el contenedor */
+  }
+
+  .image-description {
+    font-size: 1em;
+    text-align: center;
+    margin: 0 10px;
+  }
+
+  .grid-container-blog li {
+    font-size: 0.95em;
+    padding: 5px 10px;
+  }
+}
+
+/* Estilos específicos para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .slogan {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  h2, h3 {
+    font-size: 1.3em;
+    text-align: center;
+  }
+
+  .blog-post-image {
+    max-width: 100%; /* Usa el ancho completo en móviles */
+  }
+
+  .content-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-description {
+    font-size: 0.9em;
+    padding: 0 10px;
+  }
+
+  /* Ajuste para lista de consejos en pantallas pequeñas */
+  .grid-container-blog li {
+    font-size: 0.9em;
+    line-height: 1.4;
+    text-align: left;
+  }
+}

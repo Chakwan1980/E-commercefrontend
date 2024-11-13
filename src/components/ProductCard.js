@@ -19,12 +19,12 @@ const ProductCard = ({ product }) => {
   }
 
   return (
-    <div className="product-card">
+    <div className="ProductCard">
+    <div className="container-CART ">
          <h2 className='product-title'>{product.product_name}</h2>
-      <img
+      <img   className="zoom-image"
         src={product.image_url || "https://via.placeholder.com/150"}
-        width={250}
-        height={280}
+       
         alt={product.product_name}
       />
       
@@ -37,6 +37,7 @@ const ProductCard = ({ product }) => {
       <p>Código del producto: {product.product_code}</p>
       <p>Categoría: {product.category || "Sin categoría."}</p>
       <button onClick={handleAddToCart}>Agregar al carrito para pagar</button>
+    </div>
     </div>
   );
 };

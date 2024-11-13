@@ -1,206 +1,98 @@
-/* payment.css */
-.container-payment {
-    max-width: 600px; /* Ancho máximo */
-    margin: 150px  auto; /* Centrado horizontal */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 10px; /* Bordes redondeados */
-    background: #f9f9f9; /* Fondo claro */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    
-}
-
-h2, h3 {
-    text-align: center; /* Centrar texto */
-}
-
-.card-preview {
-    text-align: center; /* Centrar texto */
-    margin-bottom: 20px; /* Espaciado inferior */
-}
-
-.credit-card {
-    width: 100%; /* Ancho completo */
-    height: 180px; /* Altura de la tarjeta */
-    background: linear-gradient(135deg, #3b5998, #8b9dc3); /* Color de fondo de la tarjeta */
-    border-radius: 10px; /* Bordes redondeados */
-    color: white; /* Color del texto */
-    padding: 20px; /* Espaciado interno */
-    display: flex; /* Usar Flexbox para la alineación */
-    flex-direction: column; /* Colocar elementos en columna */
-    justify-content: space-between; /* Espacio entre los elementos */
-    position: relative; /* Para colocar elementos en relación */
-    overflow: hidden; /* Ocultar contenido desbordado */
-}
-
-.card-number {
-    font-size: 1.5rem; /* Tamaño de la fuente para el número de tarjeta */
-    letter-spacing: 1px; /* Espaciado entre números */
-}
-
-.card-details {
-    display: flex; /* Usar Flexbox para los detalles */
-    justify-content: space-between; /* Espacio entre el titular y la fecha */
-}
-
-.card-holder {
-    font-size: 1rem; /* Tamaño de la fuente para el nombre del titular */
-}
-
-.card-expiry {
-    font-size: 1rem; /* Tamaño de la fuente para la fecha de expiración */
-}
-
-form {
-    display: flex; /* Usar Flexbox para alineación */
-    flex-direction: column; /* Colocar elementos en columna */
-}
-
-div {
-    margin-bottom: 15px; /* Espaciado entre campos */
-}
-
-label {
-    font-weight: bold; /* Negrita en las etiquetas */
-}
-
-input {
-    width: 100%; /* Ancho completo */
-    padding: 10px; /* Espaciado interno */
-    border: 1px solid #ccc; /* Borde sutil */
-    border-radius: 5px; /* Bordes redondeados */
-}
-
-
-
-.expiry-cvv-container div {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.expiry-cvv-container div:last-child {
-    margin-right: 0;
-}
-
-/* Asegúrate de que ambos <input> y <label> tengan el mismo tamaño de fuente y padding */
-.expiry-cvv-container label {
-    font-size: 14px;
-    margin-bottom: 4px; /* Asegura un espacio uniforme debajo del label */
-    display: block;
-}
-
-.expiry-cvv-container input {
-    padding: 8px; /* Ajusta el padding si es necesario */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
-    width: 100%; /* Hace que los inputs ocupen todo el espacio del div */
-}
-
-.card-icons {
-    display: flex; /* Usar Flexbox para los iconos */
-    justify-content: center; /* Centrar iconos */
-    margin-bottom: 10px; /* Espacio inferior */
-}
-
-.card-icons img {
-    width: 50px; /* Tamaño de los iconos */
-    margin: 0 5px; /* Espaciado lateral */
-}
-
-.pay-button {
-    flex: 1; /* Cada botón ocupará el mismo espacio disponible */
-    background-color: #4CAF50; /* Color de fondo verde */
-    color: white; /* Color del texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px; /* Espaciado interior */
-    text-align: center; /* Centrar texto */
-    text-decoration: none; /* Sin subrayado */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambiar cursor al pasar por encima */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s; /* Transición para el color de fondo */
-}
-
-.pay-button:hover {
-    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
-}
-
-/**************  Button Cointeiner ***/
+/************** Button Container Responsive **************/
 
 .button-container {
-    display: flex; /* Usamos flexbox para alinear los elementos en línea */
-    gap: 10px; /* Espacio entre los botones */
-    margin-top: 0; /* Cambia este valor si quieres eliminar el espacio superior */
-}
-
-.pay-button {
-    flex: 1; /* Cada botón ocupará el mismo espacio disponible */
-    background-color: #4CAF50; /* Color de fondo verde */
-    color: white; /* Color del texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px; /* Espaciado interior */
-    text-align: center; /* Centrar texto */
-    text-decoration: none; /* Sin subrayado */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambiar cursor al pasar por encima */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s; /* Transición para el color de fondo */
-}
-
-.pay-button:hover {
-    background-color: #45a049; /* Cambiar color al pasar el cursor */
-}
-
-
-
-/************** Thank you */
-/* thankYou.css */
-
-.success-container {
-    margin: 10% auto; /* Margen superior e inferior y centrado */
+    display: flex;
+    gap: 10px;
+    margin-top: 0;
+  }
+  
+  .pay-button {
+    flex: 1;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .pay-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsive: Stack buttons vertically on smaller screens */
+  @media (max-width: 600px) {
+    .button-container {
+      flex-direction: column;
+    }
+  }
+  
+  /************** Success Container Responsive **************/
+  
+  .success-container {
+   margin-top: 100px;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-    gap: 10px; /* Espacio entre columnas */
-    
+    grid-template-columns: 1fr 1fr;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     align-items: start;
-}
-
-
-
-.thank-you-container {
-    max-width: 450px; /* Ancho máximo */
-    margin: 10% auto; /* Margen superior e inferior y centrado */
-    padding: 30px; /* Espaciado interno */
-    border-radius: 15px; /* Bordes redondeados */
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Fondo con degradado */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    text-align: center; /* Centrar el texto */
-    transition: transform 0.3s; /* Transición suave */
-}
-
-.thank-you-container:hover {
-    transform: translateY(-5px); /* Elevación al pasar el ratón */
-}
-
-.thank-you-icon {
-    font-size: 80px; /* Tamaño del icono de agradecimiento */
-    margin-bottom: 20px; /* Espaciado inferior */
-    color: #007bff; /* Color del icono */
-}
-
-.thank-you-container h2 {
-    color: #333; /* Color del título */
-    margin-bottom: 10px; /* Espaciado inferior */
-    font-family: 'Arial', sans-serif; /* Fuente moderna */
-    font-size: 24px; /* Tamaño de fuente del título */
-}
-
-.thank-you-container p {
-    color: #555; /* Color del texto */
-    margin-bottom: 15px; /* Espaciado inferior */
-    font-family: 'Arial', sans-serif; /* Fuente moderna */
-    font-size: 16px; /* Tamaño de fuente del párrafo */
-}
-
-
+  }
+  
+  /* Responsive: Single column on smaller screens */
+  @media (max-width: 768px) {
+    .success-container {
+      grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+      margin: 10% auto;
+    }
+  }
+  
+  /************** Thank You Container Responsive **************/
+  
+  .thank-you-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .thank-you-container:hover {
+    transform: translateY(-5px);
+  }
+  
+  .thank-you-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+  
+  .thank-you-container h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+  }
+  
+  .thank-you-container p {
+    color: #555;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Responsive adjustments for thank-you container */
+  @media (max-width: 600px) {
+    .thank-you-container {
+      max-width: 90%; /* Ocupa el 90% del ancho en pantallas pequeñas */
+      padding: 20px;
+    }
+  }
+  

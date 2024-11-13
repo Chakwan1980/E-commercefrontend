@@ -1,32 +1,185 @@
-/* Estilos para la tarjeta del producto */
+/* Estilos generales para la tarjeta */
 .product-card {
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  transition: transform 0.2s ease-in-out;
-  text-align: center;
   margin: 15px;
-  flex: 1 1 calc(50% - 30px);
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 300px;
+  overflow: hidden;
+  height: 700px; /* Altura fija para todas las tarjetas */
+  overflow: hidden;
+  
+}
+.product-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+
+/* Título del producto  - TIENDA*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.product-list {
+h1 {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.product-container p {
+  margin: 0;
+  padding: 0;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333333;
+  margin: 10px 0;
+}
+.main-container{
+  margin-top:250px;
+  padding:0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-  gap: 15px; /* Espaciado entre tarjetas */
+  color: white;
+  align-items: center;
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  
+}
+
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen llene el espacio sin distorsión */
+}
+
+
+
+/* Para pantallas medianas (tablets y dispositivos similares) */
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: 1fr; /* Una columna en pantallas medianas */
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .product-container {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    gap: 10px; /* Reduce el espacio entre elementos en pantallas pequeñas */
+  }
+}
+@media (min-width: 600px) and (max-width: 1024px){
+
+  .product-container {
+    grid-template-columns: 1fr 1fr; /* Una columna en pantallas medianas */
+  }
+}
+
+
 /* Imagen del producto */
-.product-card img.card-img-top {
+.zoom-image {
   width: 100%;
   height: auto;
+  max-height: 200px;
+  object-fit: cover;
   border-radius: 8px;
+  transition: transform 0.3s ease;
   margin-bottom: 15px;
 }
 
+.zoom-image:hover {
+  transform: scale(1.1);
+}
+
+/* Información del producto */
+.product-card p {
+  font-size: 0.9rem;
+  color: #555555;
+  margin: 5px 0;
+}
+
+/* Precio */
+.product-card p:first-of-type {
+  font-weight: 700;
+  color: #1a73e8;
+}
+
+/* Botón para agregar al carrito */
+.product-card button {
+  padding: 10px 15px;
+  background-color: #1a73e8;
+  color: #ffffff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.product-card button:hover {
+  background-color: #1665c1;
+}
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+  .product-card {
+    max-width: 90%; /* Ajusta el ancho para tablets */
+    margin: 15px auto;
+  }
+
+  .product-title {
+    font-size: 1.3rem;
+  }
+
+  .zoom-image {
+    max-height: 180px;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  .product-card {
+    max-width: 100%; /* Ocupa el 100% del ancho en móviles */
+    margin: 10px auto;
+  }
+
+  .product-title {
+    font-size: 1.2rem;
+  }
+
+  .zoom-image {
+    max-height: 150px;
+  }
+
+  .product-card button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+/***********************************************************************************/
 /* Nombre del producto */
 .product-card h2 {
   font-size: 1.2rem;
@@ -73,6 +226,7 @@
   font-weight: bold; /* Negrita para destacar */
   color: #333; /* Color de texto distintivo */
   text-transform: capitalize; /* Capitalizar cada palabra */
+  margin-top: 250px auto;
   margin-bottom: 10px; /* Espacio debajo del título */
   letter-spacing: 0.5px; /* Espaciado entre letras */
   border-bottom: 2px solid #007BFF; /* Línea inferior para resaltarlo */
@@ -103,15 +257,19 @@
 }
 
 
-/* Otras reglas CSS que ya tienes */
+
+
+/* Css para Pago del Carrito  /cart */
+
 .container-CART {
   max-width: 1000px;
-  margin: 200px  auto;
+  margin:120px  auto;
   padding: 30px;
   background-color: #f9f9f9;
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   text-align: center;
+  gap:10px;
 }
 
 .container-CART h2 {
@@ -223,4 +381,78 @@
 
 .container-CART button:hover {
   background-color: #1665c1;
+}
+
+/* Ajustes para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr); /* Muestra dos columnas en tablets */
+    gap: 15px; /* Espaciado entre tarjetas */
+    padding: 0 15px; /* Añade margen lateral en el contenedor */
+  }
+
+  .product-card {
+    max-width: 90%; /* Limita el ancho de cada tarjeta */
+    margin: 0 auto 20px; /* Centra las tarjetas y añade espacio inferior */
+  }
+
+  .product-card img.card-img-top {
+    max-width: 80%; /* Ajusta el ancho máximo de la imagen */
+    margin: 0 auto; /* Centra la imagen dentro de la tarjeta */
+  }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    padding: 0 10px; /* Añade margen lateral en el contenedor */
+  }
+
+  .product-card {
+    max-width: 90%; /* Limita el ancho de cada tarjeta para que no ocupe todo el ancho */
+    margin: 0 auto 15px; /* Centra la tarjeta y añade espacio inferior */
+    
+  }
+
+  .product-card img.card-img-top {
+    max-width: 80%; /* Ajusta el ancho de la imagen */
+    margin: 0 auto; /* Centra la imagen dentro de la tarjeta */
+  }
+
+  /* Ajuste para botones en pantallas pequeñas */
+  .product-card button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  /* Ajustes en el contenedor del carrito */
+  .container-CART {
+    max-width: 90%;
+    margin: 50px auto; /* Reduce el margen superior en pantallas pequeñas */
+    padding: 20px;
+  }
+
+  .product-grid-CART {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+  }
+
+  .product-card-CART img.card-img-top-1 {
+    width: 100%; /* Ocupa el ancho completo en móviles */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+}
+
+
+/* ProductList*/
+.text-h1{
+  margin-top:20px;
+  margin-bottom: 20px;
+  padding:0;
+  display: grid;
+  color: white;
+  align-items: center;
+  display: grid;
+  place-items: center;
+  text-align: center;
 }

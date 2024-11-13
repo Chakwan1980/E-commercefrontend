@@ -1,25 +1,41 @@
-.image-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%; /* Ajusta al tamaño de tu galería */
-    height: 450px; /* Ajusta según sea necesario */
-  }
-  
-  .history-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transiciones suaves */
-    opacity: 0; /* Inicialmente invisible */
-    transform: scale(1.1); /* Aumenta el tamaño para un efecto de zoom */
-  }
-  
-  .history-image.show {
-    opacity: 1; /* Muestra la imagen */
-    transform: scale(1); /* Regresa a su tamaño original */
-  }
-  
-  .gallery{
-    height: 500px;
-  }
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%; /* Asegura que ocupe el ancho total sin desbordarse */
+  height: 700px; /* Ajusta esta altura según lo que necesites */
+  background-color: #f0f0f0; /* Color de fondo temporal para ver el contenedor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image {
+  position: absolute; /* Asegura que todas las imágenes ocupen el mismo espacio */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; /* Invisible por defecto */
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+.carousel-image.active {
+  opacity: 1; /* Solo la imagen actual es visible */
+  z-index: 1; /* Coloca la imagen activa al frente */
+}
+
+.carousel-gallery {
+  width: 95%;
+  max-height: 700px; /* Ajusta según el tamaño que desees para la galería */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid #ffffff; /* Borde blanco alrededor del carrusel */
+  border-radius: 15px; /* Bordes redondeados, opcional */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efecto de profundidad */
+}
+

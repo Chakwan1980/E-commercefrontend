@@ -1,0 +1,130 @@
+/* Ajuste general para .contenedor-principal */
+.contenedor-principal {
+ 
+  max-width: 1200px;
+  padding: 20px;
+  background-color: transparent;
+  margin: 150px auto;
+}
+
+/* Estilos para títulos */
+
+.title-pagina-fotos {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  margin: 10px 0;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+hr {
+  border: none; /* Elimina el borde predeterminado */
+  border-top: 4px solid #ccc; /* Cambia el grosor y color de la línea */
+  margin: 20px 0; /* Espacio arriba y abajo de la línea */
+  width: 100%; /* Ajusta el ancho, si deseas cambiarlo */
+}
+
+
+/* Estilos para las filas de imágenes */
+.image-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+/* Estilos para imágenes redondas */
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+.product-image.small-square {
+  width: 120px;
+  height: 150px;
+  border-radius: 0;
+}
+
+/* Estilo de cada imagen y descripción */
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+.image-description-p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+
+/* Ajuste para .contenedor */
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  .contenedor-principal {
+    padding: 20px;
+  }
+
+  .image-row {
+    justify-content: center; /* Centra las imágenes en pantallas medianas */
+  }
+
+  .product-image,
+  .product-image.small-square {
+    width: 120px;
+    height: 120px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .contenedor-principal {
+    padding: 15px;
+  }
+
+  .image-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-image,
+  .product-image.small-square {
+    width: 100px;
+    height: 100px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+}

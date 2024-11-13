@@ -57,3 +57,53 @@
     color: #fff;
   }
   
+/* Media Queries para Responsividad */
+
+/* Ajustes para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 10px;
+  }
+
+  .footer-links {
+    gap: 15px; /* Reducir el espacio entre enlaces */
+  }
+
+  .footer p {
+    font-size: 13px; /* Disminuir tamaño de fuente */
+  }
+  
+  .social-icons a {
+    font-size: 18px; /* Disminuir el tamaño de los íconos */
+    margin: 0 8px; /* Espacio más pequeño entre íconos */
+  }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 10px;
+    text-align: center; /* Centra el texto en móviles */
+  }
+
+  .footer-links {
+    flex-direction: column; /* Apilar enlaces verticalmente */
+    gap: 10px; /* Menor espacio entre enlaces */
+  }
+
+  .footer-links a {
+    font-size: 16px; /* Aumenta ligeramente para mejor legibilidad en móviles */
+  }
+
+  .social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center; /* Centra los íconos en móviles */
+    flex-wrap: wrap;
+  }
+
+  .social-icons a {
+    font-size: 18px; /* Ajusta el tamaño de los íconos */
+    margin: 5px; /* Ajusta el margen para un mejor ajuste en móviles */
+  }
+}

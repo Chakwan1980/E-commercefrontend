@@ -19,28 +19,17 @@ export const getProducts = async () => {
 // get by id
 export const getProductsByCategory = async (category) => {
     if (!category || typeof category !== 'string') {
-        throw new Error("Categoría no válida");
+      throw new Error("Categoría no válida");
     }
-
+  
     try {
-        const response = await fetch(`${API_URL}/products?category=${encodeURIComponent(category)}`);
-        const products = await response.json();
-        
-        return products.map(product => ({
-            id: product.id,
-            product_name: product.product_name,
-            product_description: product.product_description,
-            product_code: product.product_code,
-            price: parseFloat(product.price), // Asegúrate de que esto se convierta a un número
-            image_url: product.image_url,
-            category: product.category
-        }));
+      const response = await axios.get(`${API_URL}?category=${encodeURIComponent(category)}`);
+      return response.data;
     } catch (error) {
-        console.error("Error obteniendo productos por categoría:", error);
-        throw error;
+      console.error("Error obteniendo productos por categoría:", error);
+      throw error;
     }
-};
-
+  };
 // post
 export const addProduct = async (product) => {
     try {
@@ -87,58 +76,18 @@ export const getOrders = async () => {
     }
 };
 
-// Agregar una nueva orden
-export const addOrder = async (order) => {
-    try {
-        const response = await axios.post(`${API_URL}/orders`, order);
-        return response.data; // Devuelve la orden creada
-    } catch (error) {
-        console.error("Error agregando orden:", error);
-        throw error;
+export const getProductPriceBySize = async (id, size) => {
+    if (!id || !size) {
+        throw new Error("ID del producto y talla son necesarios");
     }
-};
 
-// Obtener todos los ítems de órdenes
-export const getOrderItems = async () => {
     try {
-        const response = await axios.get(`${API_URL}/order_items`);
-        return response.data; // Devuelve los ítems de órdenes
+        const response = await axios.get(`${API_URL}/${id}/price`, {
+            params: { size } // Agregar `size` como parámetro de consulta
+        });
+        return response.data.price; // Devuelve el precio específico para la talla
     } catch (error) {
-        console.error("Error obteniendo ítems de órdenes:", error);
-        throw error;
-    }
-};
-
-// Agregar un nuevo ítem de orden
-export const addOrderItem = async (orderItem) => {
-    try {
-        const response = await axios.post(`${API_URL}/order_items`, orderItem);
-        return response.data; // Devuelve el ítem de orden creado
-    } catch (error) {
-        console.error("Error agregando ítem de orden:", error);
-        throw error;
-    }
-};
-
-// Register 
-
-export const registerUser = async (userData) => {
-    try {
-        const response = await axios.post(`${API_URL}/api/register`, userData);
-        return response.data; // Devuelve la respuesta del registro
-    } catch (error) {
-        console.error("Error registrando el usuario:", error);
-        throw error;
-    }
-};
-
-// Iniciar sesión
-export const loginUser = async (credentials) => {
-    try {
-        const response = await axios.post(`${API_URL}/login`, credentials);
-        return response.data; // Devuelve el token si las credenciales son válidas
-    } catch (error) {
-        console.error("Error iniciando sesión:", error);
+        console.error("Error obteniendo el precio por talla:", error);
         throw error;
     }
 };

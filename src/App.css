@@ -18,6 +18,7 @@ html, body {
 .app-content {
   flex: 1;
   padding: 20px;
+  padding-top: 10vh; /* Ajusta este valor para que coincida con la altura del Navbar */
 }
 
 .footer {

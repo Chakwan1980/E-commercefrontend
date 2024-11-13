@@ -4,10 +4,12 @@ import "./payment.css";
 
     const Success = () => {
       return (
+        <div>  <h1 className="title-blog">  🎉¡Gracias por tu compra!..</h1>
+              <hr></hr> 
         <div className="success-container">
+             
           <div className="thank-you-container">
-            <div className="thank-you-icon">🎉</div>
-            <h2>¡Gracias por tu compra!</h2>
+           
             <p>
               Tu pedido ha sido procesado exitosamente. Por favor rellena el
               formulario con tus datos y dirección de envío.
@@ -17,6 +19,7 @@ import "./payment.css";
           </div >
           
           <ShippingForm />
+        </div>
         </div>
       );
     };

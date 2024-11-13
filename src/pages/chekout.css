@@ -1,25 +1,64 @@
-.grid-container {
+/* CheckoutStyles.css */
+
+.container-CART {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .product-grid-CART {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Espacio entre los elementos */
-    margin-top: 200px;
-}
-
-.product-grid {
-    display: grid;
-    gap: 20px; /* Espacio entre las tarjetas */
-    width: 100%;
-    /* Para controlar la cantidad de columnas, ajusta según el número de productos */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta las tarjetas para distribuirlas */
-    justify-items: center; /* Centra los elementos en la columna */
-}
-
-/* Estilos para las tarjetas del producto */
-.product-card-1 {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
+  }
+  
+  .product-grid-CART h2,
+  .product-grid-CART h3.total {
     text-align: center;
-    width: 100%; /* Hace que las tarjetas ocupen todo el ancho en la columna */
-}
+    margin: 10px 0;
+  }
+  
+  .product-grid-CART ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .product-grid-CART li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  .card-img-top-1 {
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  .pay-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pay-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Ajusta el tamaño máximo y mínimo de las tarjetas para mantener consistencia */
+  .product-grid-CART li {
+    max-width: 400px;
+    min-width: 300px;
+  }
+  

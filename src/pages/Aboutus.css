@@ -1,93 +1,167 @@
 /* AboutUs.css */
+
 .history-section {
-   
-    margin:250px auto;
-    padding: 50px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 1200px; /* Limitar el ancho máximo */
+  margin: 150px auto; /* Reducir el margen para dispositivos móviles */
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Limitar el ancho máximo */
+}
+
+.section-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.5em; /* Título más grande */
+  margin-bottom: 20px;
+}
+
+/* Cuadrícula responsiva */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; /* Espaciado entre tarjetas */
+}
+
+/* Estilos de los contenedores de información */
+.story-container,
+.gallery,
+.info-container,
+.links-container {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.story-container:hover,
+.gallery:hover,
+.info-container:hover,
+.links-container:hover {
+  transform: scale(1.02);
+}
+
+.gallery {
+  text-align: center;
+}
+
+/* Contenedor de imágenes */
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Imágenes */
+.history-image {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.links-container {
+  margin-top: 20px;
+}
+
+/* Enlaces */
+.links-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.links-container a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.links-container a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+.contact-form {
+  margin-top: 20px;
+  width: 100%; /* Ancho completo en móviles */
+  max-width: 300px; /* Ancho máximo */
+}
+
+/* Encabezados */
+h3 {
+  color: crimson;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  .history-section {
+    margin: 80px auto;
+    padding: 10px;
   }
-  
+
   .section-title {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 2.5em; /* Título más grande */
-    margin-bottom: 20px;
+    font-size: 2em; /* Reducir tamaño del título */
   }
-  
+
   .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cuadrícula responsiva */
-    gap: 20px; /* Espaciado entre tarjetas */
+    grid-template-columns: 1fr; /* Una columna en tablets */
   }
-  
+
+  .history-image {
+    max-width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: auto; /* Ajusta la altura para evitar distorsión */
+  }
+
   .story-container,
   .gallery,
   .info-container,
   .links-container {
-    background: #f8f9fa; /* Color de fondo suave */
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s; /* Efecto de hover */
+    padding: 15px;
+   
   }
-  
-  .story-container:hover,
-  .gallery:hover,
-  .info-container:hover,
-  .links-container:hover {
-    transform: scale(1.02); /* Efecto de agrandamiento al pasar el mouse */
-  }
-  
-  .gallery {
-    text-align: center;
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .history-section {
+    margin: 40px auto;
+    padding: 15px;
     
   }
-  
+
+  .section-title {
+    font-size: 1.8em;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
   .image-container {
-    display: flex;
-    flex-wrap: wrap; /* Permitir que las imágenes se ajusten */
-    justify-content: center; /* Centrar imágenes */
-    gap: 15px; /* Espaciado entre imágenes */
+    gap: 5px;
   }
-  
+
   .history-image {
-    width: 100%; /* Ancho responsivo */
-    max-width: 300px; /* Ancho máximo para imágenes */
-    height: 200px; /* Altura fija para imágenes */
-    object-fit: cover; /* Ajustar la imagen al contenedor */
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    height: auto;
   }
-  
-  .links-container {
-    margin-top: 20px;
-  }
-  
-  .links-container ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .links-container a {
-    text-decoration: none;
-    color: #007bff; /* Color del enlace */
-    font-weight: bold; /* Hacer el texto más prominente */
-  }
-  
-  .links-container a:hover {
-    text-decoration: underline;
-    color: #0056b3; /* Color al pasar el ratón */
-  }
+
   .contact-form {
-    margin-top: 20px;
-    width: 300px;
+    width:100%;
+    margin: 0 auto;
   }
 
   h3 {
-    color:crimson; /* Verde bosque */
-    font-size: 1.8em; /* Tamaño adecuado para destacar */
-    font-weight: bold;
-    margin-bottom: 15px;
+    font-size: 1.5em;
   }
+}

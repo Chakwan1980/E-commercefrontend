@@ -1,54 +1,109 @@
-/* frontend/src/components/Navbar.css */
+/* Ajustes generales */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #ffffff; /* Fondo blanco para un look limpio */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: background-color 0.3s ease; /* Transición para el fondo */
-}
-
-.navbar a {
-  color: #333333; /* Gris oscuro en vez de negro para suavizar el texto */
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 17px;
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease; /* Animación en hover */
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* Más espacio entre los elementos */
-}
-
-.nav-right a {
-  text-decoration: none;
-  color: #333333;
-  font-size: 16px;
-  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo {
-  border-radius:80%;/* Asegura que sea perfectamente circular */
-
+  border-radius: 50%;
   transition: transform 0.3s ease;
+  height: 100%;
+  object-fit: contain;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Estilos de enlace */
+.navbar-right a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-right a:hover {
+  background-color: #3c6a6a;
+  color: #ffffff;
+}
+
+.navbar-right .active {
+  color: #3c6a6a;
+  font-weight: 600;
+  border-bottom: 2px solid #3c6a6a;
 }
 
 
+/* Responsivo: Cambiar a disposición en columna en pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
 
-.content-container {
-  margin-top: 75px; /* Ajuste de margen según la altura de la navbar */
+  /* Hacer el logo más pequeño y ocultarlo en pantallas pequeñas */
+  .logo {
+    width: 50px; /* Reducir tamaño del logo */
+    height: auto;
+  }
+
+  @media (max-width: 500px) {
+    .logo {
+      display: none; /* Ocultar logo en pantallas menores a 500px */
+    }
+  }
+
+  /* Alinear navbar-right en una sola fila y centrar */
+  .navbar-right {
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar-right a {
+    font-size: 16px;
+    padding: 8px 10px;
+    text-align: center;
+  }
 }
 
-/* Opcional: Cambia el color de fondo en scroll */
-.navbar.scrolled {
-  background-color: #f1f1f1; /* Cambia el fondo al hacer scroll */
+/* Responsivo: Ajustes para pantallas medianas */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .navbar-right a {
+    font-size: 18px;
+    margin-right: 15px;
+  }
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 20px 40px;
+  }
+
+  .navbar-right a {
+    font-size: 20px;
+    margin-right: 20px;
+  }
 }

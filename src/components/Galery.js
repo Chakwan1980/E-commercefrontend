@@ -24,12 +24,12 @@ const Posavasos =
   "https://rosa-test-bucket-05112024.s3.eu-central-1.amazonaws.com/posavasos.png";
 const ServilletasDeColores =
   "https://rosa-test-bucket-05112024.s3.eu-central-1.amazonaws.com/servilletasdecolores.png";
-const Vestido =
-  "https://rosa-test-bucket-05112024.s3.eu-central-1.amazonaws.com/vestido.png";
+
 const VestidoNegro =
   "https://rosa-test-bucket-05112024.s3.eu-central-1.amazonaws.com/VestidoNegro.png";
 const VestidoNina =
   "https://rosa-test-bucket-05112024.s3.eu-central-1.amazonaws.com/vestidonina.png";
+const CamisaHombre ="https://rosa-test-bucket-05112024.s3.eu-central-1.amazonaws.com/CamisaHombre.png";  
 
 const Gallery = () => {
   // array
@@ -45,9 +45,9 @@ const Gallery = () => {
     MantelBlanco,
     Posavasos,
     ServilletasDeColores,
-    Vestido,
     VestidoNegro,
     VestidoNina,
+    CamisaHombre,
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -61,15 +61,14 @@ const Gallery = () => {
   }, [images.length]);
 
   return (
-    <div className="gallery">
-    
-      <div className="image-container">
+    <div className="carousel-gallery">
+      <div className="carousel-container">
         {images.map((src, index) => (
           <img
             key={index}
             src={src}
             alt={`Descripción de la imagen ${index + 1}`}
-            className={`history-image ${currentIndex === index ? 'show' : ''}`} // Aplica la clase 'show' solo a la imagen actual
+            className={`carousel-image ${currentIndex === index ? 'active' : ''}`}
           />
         ))}
       </div>

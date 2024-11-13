@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "./CartContext.js";// Importa el hook useCart
 import "./shippingForm.css";
 
 const ShippingForm = () => {
     const navigate = useNavigate();
+    const { clearCart } = useCart(); // Accede a la función clearCart del contexto del carrito
     const [formData, setFormData] = useState({
         name: '',          
         last_name: '',     
@@ -35,7 +37,8 @@ const ShippingForm = () => {
     
             if (response.ok) {
                 alert("¡Gracias por tu compra, hasta pronto!");
-                navigate('/home');
+                clearCart(); // Vacía el carrito tras el envío exitoso
+                navigate('/home'); // Redirige a la página de inicio
             } else {
                 const errorData = await response.json();
                 alert("Hubo un problema al enviar el formulario: " + errorData.error);
@@ -45,7 +48,6 @@ const ShippingForm = () => {
             alert("Hubo un error en la conexión. Inténtalo más tarde.");
         }
     };
-    
 
     return (
         <div className="info-container">
